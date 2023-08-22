@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://c0tr5ncyq4dk1"]
+
+[ext_resource type="Texture2D" uid="uid://dtkb2el8qgasp" path="res://alien.sprites/alienBeige_stand.tres" id="1_1q5ol"]
+[ext_resource type="Script" path="res://player.gd" id="1_8gunb"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_26tih"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_1q5ol")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iyrwh"]
+size = Vector2(65, 94)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_8gunb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_26tih")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -1)
+shape = SubResource("RectangleShape2D_iyrwh")
