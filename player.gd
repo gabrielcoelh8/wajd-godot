@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@export_category('SCRIPT')
 @export var SPEED = 200.0
 @export var JUMP_VELOCITY = -400.0
 @export var JUMP_RELEASE_FORCE = -200
@@ -10,26 +11,31 @@ extends CharacterBody2D
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var GRAVITY = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+@onready var animatedSprite = $AnimatedSprite2D #só declara após o node estar carregado
+
+func _ready():
+	animatedSprite.sprite_frames = load("res://playerBeige.tres") 
+	#setar spriteframes (permite mudar os frames do objeto)
 
 func _physics_process(delta):
-	# Add the gravity.
+	# aplica gravidade por delta
 	apply_gravity(delta)
-	$AnimatedSprite2D.play()
-		
+	
 	var input = Vector2.ZERO
 	input.x = Input.get_action_strength('ui_right') - Input.get_action_strength('ui_left') 
-	#negative when moved from left
+	#negativo ao mover para esquerda
 	
 	if input.x == 0:
 		apply_friction()
-		$AnimatedSprite2D.animation = "idle"
+		#resistência física
+		animatedSprite.animation = "idle"
 	else:
 		apply_acceleration(input.x)
-		$AnimatedSprite2D.animation = "run"
+		animatedSprite.animation = "run"
 		if(input.x < 0):
-			$AnimatedSprite2D.flip_h = true
+			animatedSprite.flip_h = true
 		elif(input.x > 0):
-			$AnimatedSprite2D.flip_h = false
+			animatedSprite.flip_h = false
 	
 	# Handle Jump.
 	if is_on_floor():
@@ -37,10 +43,10 @@ func _physics_process(delta):
 			velocity.y = JUMP_VELOCITY
 			#aplicar força de salto
 	else:
-		$AnimatedSprite2D.animation = "jump"
+		animatedSprite.animation = "jump"
 		if Input.is_action_just_released("ui_up") and velocity.y < JUMP_RELEASE_FORCE: 
-			#final do salto logo após parar de saltar
 			velocity.y = JUMP_RELEASE_FORCE
+			#final do salto mais lento logo após salto primario
 		if velocity.y > 0:
 			velocity.y += ADD_FALL_GRAVITY 
 			#gravidade adicional ao começar queda livre

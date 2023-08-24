@@ -1,40 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://c0tr5ncyq4dk1"]
+[gd_scene load_steps=4 format=3 uid="uid://c0tr5ncyq4dk1"]
 
-[ext_resource type="Texture2D" uid="uid://dtkb2el8qgasp" path="res://alien.sprites/alienBeige_stand.tres" id="1_1q5ol"]
 [ext_resource type="Script" path="res://player.gd" id="1_8gunb"]
-[ext_resource type="Texture2D" uid="uid://crn5otvn141sn" path="res://alien.sprites/alienBeige_swim2.tres" id="3_mwk47"]
-[ext_resource type="Texture2D" uid="uid://hihpi3ocsl5l" path="res://alien.sprites/alienBeige_walk1.tres" id="3_pnf8b"]
-[ext_resource type="Texture2D" uid="uid://4omrryr2wug4" path="res://alien.sprites/alienBeige_walk2.tres" id="4_lcou1"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_26tih"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_1q5ol")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_mwk47")
-}],
-"loop": false,
-"name": &"jump",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_pnf8b")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_lcou1")
-}],
-"loop": true,
-"name": &"run",
-"speed": 5.0
-}]
+[ext_resource type="SpriteFrames" uid="uid://6k82lw22eccf" path="res://playerBeige.tres" id="2_8dcsu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iyrwh"]
 size = Vector2(48, 78)
@@ -45,8 +12,9 @@ FRICTION = 30
 ADD_FALL_GRAVITY = 7
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_26tih")
-animation = &"run"
+sprite_frames = ExtResource("2_8dcsu")
+animation = &"idle"
+autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, 7)

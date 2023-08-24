@@ -1,0 +1,36 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://6k82lw22eccf"]
+
+[ext_resource type="Texture2D" uid="uid://dtkb2el8qgasp" path="res://alien.sprites/alienBeige_stand.tres" id="1_uoc7e"]
+[ext_resource type="Texture2D" uid="uid://crn5otvn141sn" path="res://alien.sprites/alienBeige_swim2.tres" id="2_seqj5"]
+[ext_resource type="Texture2D" uid="uid://hihpi3ocsl5l" path="res://alien.sprites/alienBeige_walk1.tres" id="3_ffsrg"]
+[ext_resource type="Texture2D" uid="uid://4omrryr2wug4" path="res://alien.sprites/alienBeige_walk2.tres" id="4_1l02i"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_uoc7e")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_seqj5")
+}],
+"loop": false,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ffsrg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_1l02i")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]

@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpakfslut0sdy"]
+
+[ext_resource type="Texture2D" uid="uid://c8ck7tmctu8oc" path="res://tiles_spritesheet.png" id="1_g7xko"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j8yra"]
+texture = ExtResource("1_g7xko")
+separation = Vector2i(2, 2)
+texture_region_size = Vector2i(70, 70)
+0:0/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+0:11/0 = 0
+0:12/0 = 0
+6:8/0 = 0
+7:7/0 = 0
+7:8/0 = 0
+7:9/0 = 0
+8:4/0 = 0
+8:5/0 = 0
+8:6/0 = 0
+8:12/0 = 0
+7:12/0 = 0
+8:1/0 = 0
+8:2/0 = 0
+8:3/0 = 0
+8:0/0 = 0
+0:10/0 = 0
+0:9/0 = 0
+0:8/0 = 0
+0:7/0 = 0
+0:6/0 = 0
+0:5/0 = 0
+0:4/0 = 0
+0:3/0 = 0
+6:4/0 = 0
+6:5/0 = 0
+6:6/0 = 0
+6:11/0 = 0
+6:12/0 = 0
+7:0/0 = 0
+6:7/0 = 0
+6:9/0 = 0
+7:3/0 = 0
+8:11/0 = 0
+1:8/0 = 0
+1:9/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_wwr4l"]
+tile_size = Vector2i(72, 72)
+sources/1 = SubResource("TileSetAtlasSource_j8yra")
+
+[node name="TileMap" type="TileMap"]
+tile_set = SubResource("TileSet_wwr4l")
+format = 2

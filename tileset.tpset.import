@@ -1,0 +1,16 @@
+[remap]
+
+importer="codeandweb.texturepacker_import_tileset"
+type="Resource"
+uid="uid://j1m7acwx0dts"
+path="res://.godot/imported/tileset.tpset-1947a38615ac405c7081a850abc634df.res"
+
+[deps]
+
+files=["tileset.png", "res://tileset.res"]
+
+source_file="res://tileset.tpset"
+dest_files=["res://.godot/imported/tileset.tpset-1947a38615ac405c7081a850abc634df.res", "tileset.png", "res://tileset.res"]
+
+[params]
+

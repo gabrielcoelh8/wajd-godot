@@ -1,21 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c3cnuo6fb5ifc"]
+[gd_scene load_steps=2 format=3 uid="uid://c3cnuo6fb5ifc"]
 
-[ext_resource type="PackedScene" uid="uid://dx1h3x41kdo4n" path="res://block.tscn" id="1_0anev"]
 [ext_resource type="PackedScene" uid="uid://c0tr5ncyq4dk1" path="res://player.tscn" id="2_q7342"]
 
 [node name="World" type="Node2D"]
-
-[node name="Block2" parent="." instance=ExtResource("1_0anev")]
-position = Vector2(528, 368)
-
-[node name="Block" parent="." instance=ExtResource("1_0anev")]
-position = Vector2(456, 368)
-
-[node name="Block3" parent="." instance=ExtResource("1_0anev")]
-position = Vector2(600, 368)
-
-[node name="Block4" parent="." instance=ExtResource("1_0anev")]
-position = Vector2(672, 368)
 
 [node name="Player" parent="." instance=ExtResource("2_q7342")]
 position = Vector2(568, 208)
