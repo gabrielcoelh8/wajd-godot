@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export_category('SCRIPT')
 @export var SPEED = 200.0
-@export var JUMP_VELOCITY = -400.0
+@export var JUMP_VELOCITY = -500.0
 @export var JUMP_RELEASE_FORCE = -200
 @export var ACCELERATION = 10
 @export var FRICTION = 10

@@ -1,8 +1,36 @@
-[gd_scene load_steps=2 format=3 uid="uid://c3cnuo6fb5ifc"]
+[gd_scene load_steps=4 format=3 uid="uid://c3cnuo6fb5ifc"]
 
 [ext_resource type="PackedScene" uid="uid://c0tr5ncyq4dk1" path="res://player.tscn" id="2_q7342"]
+[ext_resource type="PackedScene" uid="uid://cpakfslut0sdy" path="res://tile_map.tscn" id="2_qjenv"]
+[ext_resource type="Texture2D" uid="uid://gtm1300iq7wa" path="res://Sprites/spot.png" id="3_q44sc"]
 
 [node name="World" type="Node2D"]
 
+[node name="TileMap" parent="." instance=ExtResource("2_qjenv")]
+texture_filter = 3
+layer_2/tile_data = PackedInt32Array(458755, 458753, 1, 524291, 458753, 1, 589827, 458753, 1, 655363, 458753, 1, 720899, 458753, 1, 786435, 458753, 1, 851971, 458753, 1, 917507, 458753, 1, 983043, 524289, 1, 327682, 655361, 2, 327683, 655361, 2, 327684, 655361, 2, 262146, 655361, 2, 262147, 655361, 2, 262148, 655361, 2, 393227, 917505, 1, 393228, 786433, 1, 393229, 851969, 1, 393232, 983041, 1, 393233, 786433, 1, 393234, 917505, 1, 393237, 917505, 1, 393238, 851969, 1, 393239, 786433, 1, 393242, 786433, 1, 393243, 851969, 1, 393244, 917505, 1, 393248, 917505, 1, 393249, 851969, 1, 393218, 655361, 2, 393219, 655361, 2, 393220, 655361, 2, 393247, 983041, 1)
+
 [node name="Player" parent="." instance=ExtResource("2_q7342")]
-position = Vector2(568, 208)
+texture_filter = 4
+texture_repeat = 1
+position = Vector2(104, 80)
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+rotation = -0.682424
+skew = -0.0488692
+color = Color(0.177156, 0.362108, 0.419841, 1)
+shadow_enabled = true
+shadow_filter = 2
+shadow_filter_smooth = 1.5
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.658824, 0.666667, 0.901961, 1)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(878, 110)
+scale = Vector2(5.04653, 3.5094)
+color = Color(0.996078, 0.94902, 0, 0.568627)
+energy = 0.52
+shadow_enabled = true
+texture = ExtResource("3_q44sc")
+texture_scale = 1.71
