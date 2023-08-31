@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 @export_category('SCRIPT')
 @export var SPEED = 200.0

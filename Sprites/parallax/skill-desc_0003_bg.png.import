@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b835wwv44swyq"
-path="res://.godot/imported/tochLit.png-317fbf440b45940c0616fad5feb1351b.ctex"
+uid="uid://6fw13y16n53e"
+path="res://.godot/imported/skill-desc_0003_bg.png-f7993e947cd3d8a23b7df4ab80463783.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/tochLit.png"
-dest_files=["res://.godot/imported/tochLit.png-317fbf440b45940c0616fad5feb1351b.ctex"]
+source_file="res://Sprites/parallax/skill-desc_0003_bg.png"
+dest_files=["res://.godot/imported/skill-desc_0003_bg.png-f7993e947cd3d8a23b7df4ab80463783.ctex"]
 
 [params]
 

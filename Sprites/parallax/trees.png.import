@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cahvtv4g6lrc3"
-path="res://.godot/imported/tileset.png-a39e944f25b35d62f55d4f98a36e2b5e.ctex"
+uid="uid://bghr0laun5s5b"
+path="res://.godot/imported/trees.png-ec9cc1b63dd6eacb6b68f0d621471a12.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tileset.png"
-dest_files=["res://.godot/imported/tileset.png-a39e944f25b35d62f55d4f98a36e2b5e.ctex"]
+source_file="res://Sprites/parallax/trees.png"
+dest_files=["res://.godot/imported/trees.png-ec9cc1b63dd6eacb6b68f0d621471a12.ctex"]
 
 [params]
 
