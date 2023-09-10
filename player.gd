@@ -8,6 +8,9 @@ class_name Player
 @export var ACCELERATION = 10
 @export var FRICTION = 10
 @export var ADD_FALL_GRAVITY = 4
+@export var canPick = true
+@onready var marker = $Marker2D
+@onready var sprite = $AnimatedSprite2D
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var GRAVITY = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -15,7 +18,8 @@ var GRAVITY = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animatedSprite = $AnimatedSprite2D #só declara após o node estar carregado
 
 func _ready():
-	animatedSprite.sprite_frames = load("res://playerBeige.tres") 
+	animatedSprite.sprite_frames = load("res://playerBeige.tres")
+
 	#setar spriteframes (permite mudar os frames do objeto)
 
 func _physics_process(delta):

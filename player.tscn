@@ -9,6 +9,7 @@ size = Vector2(48, 78)
 
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(0.5, 0.5)
+collision_layer = 2
 script = ExtResource("1_8gunb")
 FRICTION = 30
 ADD_FALL_GRAVITY = 7
@@ -18,17 +19,20 @@ z_index = -1
 position = Vector2(6, 6)
 scale = Vector2(10.0931, 7.0188)
 color = Color(0.996078, 0.94902, 0, 0.568627)
-energy = 0.6
+energy = 0.45
 shadow_enabled = true
 texture = ExtResource("2_igwjr")
 texture_scale = 1.71
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 7)
-shape = SubResource("RectangleShape2D_iyrwh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 1
 sprite_frames = ExtResource("2_8dcsu")
 animation = &"idle"
 autoplay = "idle"
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, -66)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 7)
+shape = SubResource("RectangleShape2D_iyrwh")

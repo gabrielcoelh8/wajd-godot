@@ -3,35 +3,31 @@
 [ext_resource type="Script" path="res://box.gd" id="1_w60v3"]
 [ext_resource type="Texture2D" uid="uid://dynyrxcrp8dwi" path="res://platformer_tiles.png" id="2_kw8la"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u6nrm"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hosir"]
 size = Vector2(32, 32)
+
+[sub_resource type="LabelSettings" id="LabelSettings_pkp5i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e4nig"]
 size = Vector2(64, 32)
 
-[sub_resource type="LabelSettings" id="LabelSettings_pkp5i"]
-
 [node name="Box" type="Area2D"]
 script = ExtResource("1_w60v3")
 
-[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
+[node name="Box" type="RigidBody2D" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Box"]
 texture_filter = 3
 scale = Vector2(2, 2)
 texture = ExtResource("2_kw8la")
 region_enabled = true
 region_rect = Rect2(112, 64, 16, 16)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
-shape = SubResource("RectangleShape2D_u6nrm")
-debug_color = Color(0.662745, 0.313726, 1, 0.419608)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Box"]
+shape = SubResource("RectangleShape2D_hosir")
+debug_color = Color(0.690196, 0.498039, 0, 0.419608)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_e4nig")
-debug_color = Color(0, 0.6, 0.701961, 0.419608)
-
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="Box"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -47,5 +43,9 @@ text = "1"
 label_settings = SubResource("LabelSettings_pkp5i")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_e4nig")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [connection signal="body_entered" from="." to="." method="_on_box_body_entered"]
