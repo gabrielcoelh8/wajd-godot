@@ -9,11 +9,11 @@ size = Vector2(32, 32)
 [sub_resource type="LabelSettings" id="LabelSettings_kibqo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_130ke"]
-size = Vector2(34, 32)
+size = Vector2(64, 32)
 
-[node name="Box1" type="RigidBody2D"]
+[node name="Box1" type="RigidBody2D" groups=["boxes"]]
 collision_layer = 4
-mass = 0.35
+mass = 1.41
 script = ExtResource("1_ct6tn")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -46,7 +46,7 @@ vertical_alignment = 1
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 4
-collision_mask = 3
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_130ke")

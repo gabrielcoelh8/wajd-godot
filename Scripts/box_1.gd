@@ -2,9 +2,10 @@ extends RigidBody2D
 
 var picked = false
 @onready var player = get_node("../Player")
+@onready var label = get_node("Label")
 
 func _physics_process(_delta):
-	if picked == true:
+	if picked:
 		self.position = player.marker.global_position
 
 func _input(_event):
@@ -19,13 +20,3 @@ func _input(_event):
 		print("droping...")
 		print(player.sprite.flip_h)
 		player.canPick = true
-	if Input.is_action_just_pressed("ui_throw") and picked == true:
-		picked = false
-		print("throwing...")
-		player.canPick = true
-		if player.sprite.flip_h == false:
-			apply_force(Vector2(), Vector2(90, -10))
-		else:
-			apply_impulse(Vector2(), Vector2(-90, -10))
-		
-		
