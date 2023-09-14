@@ -9,7 +9,7 @@ size = Vector2(32, 32)
 [sub_resource type="LabelSettings" id="LabelSettings_kibqo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_130ke"]
-size = Vector2(64, 32)
+size = Vector2(64, 64)
 
 [node name="Box1" type="RigidBody2D" groups=["boxes"]]
 collision_layer = 4
@@ -44,9 +44,12 @@ label_settings = SubResource("LabelSettings_kibqo")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["boxArea"]]
 collision_layer = 4
-collision_mask = 2
+collision_mask = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_130ke")
+
+[connection signal="area_shape_entered" from="Area2D" to="." method="_on_area_2d_area_shape_entered"]
+[connection signal="body_shape_entered" from="Area2D" to="." method="_on_area_2d_body_shape_entered"]
