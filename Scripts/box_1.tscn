@@ -43,6 +43,7 @@ text = "1"
 label_settings = SubResource("LabelSettings_kibqo")
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Area2D" type="Area2D" parent="." groups=["boxArea"]]
 collision_layer = 4
@@ -51,5 +52,4 @@ collision_mask = 10
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_130ke")
 
-[connection signal="area_shape_entered" from="Area2D" to="." method="_on_area_2d_area_shape_entered"]
-[connection signal="body_shape_entered" from="Area2D" to="." method="_on_area_2d_body_shape_entered"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
