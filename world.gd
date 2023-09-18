@@ -13,25 +13,35 @@ func _ready():
 		boxes_nodes[i].label.set_text(str(unique_number))
 	
 	print(numbers)
+	bubble_sort(numbers)
 
-func bubblesort(a, b):
-	if a[0] < b[0]:
-		return true
-	return false
-	
-	
+var steps = []
 func bubble_sort(arr):
 	var n = arr.size()
-	var swapped = false
-	
-	for i in range(n-1):
+	var swapped
+	var temp_arr = []
+	while swapped != false:
 		swapped = false
-		for j in range(n-1-i):
-			if arr[j] > arr[j+1]:
-				arr.swap(j, j+1)
+		
+		for i in range(1, n):
+			if arr[i-1] > arr[i]:
+				#debug
+				print("swap: ",arr[i - 1]," -> ", arr[i])
+				
+				var temp = arr[i - 1]
+				arr[i - 1] = arr[i]
+				arr[i] = temp
 				swapped = true
-		if not swapped:
-			break
+				
+				# registrar cada passo
+				for x in range(n):
+					temp_arr.append(numbers[x])
+				steps.append(temp_arr)
+				temp_arr = []
+				
+				print(numbers)
+		#n -= 1
+	print(steps)
 
 var used_numbers : Array = []
 func generate_unique_random():
