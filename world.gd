@@ -1,7 +1,10 @@
 extends Node2D
-@onready var Box1Label = get_node("Box1/Label")
 @onready var boxes_nodes = get_tree().get_nodes_in_group("boxes")
-@onready var numbers = []
+@onready var label = $Label
+var numbers = []
+var steps = []
+var current_step = 1
+var used_numbers : Array = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,7 +18,9 @@ func _ready():
 	print(numbers)
 	bubble_sort(numbers)
 
-var steps = []
+func _process(_delta):
+	label.set_text("step: " + str(current_step) + " - " + str(steps[current_step]))
+
 func bubble_sort(arr):
 	var n = arr.size()
 	var swapped
@@ -27,23 +32,22 @@ func bubble_sort(arr):
 			if arr[i-1] > arr[i]:
 				#debug
 				print("swap: ",arr[i - 1]," -> ", arr[i])
+								# registrar cada passo
+				for x in range(n):
+					temp_arr.append(numbers[x])
+				steps.append(temp_arr)
 				
 				var temp = arr[i - 1]
 				arr[i - 1] = arr[i]
 				arr[i] = temp
 				swapped = true
 				
-				# registrar cada passo
-				for x in range(n):
-					temp_arr.append(numbers[x])
-				steps.append(temp_arr)
 				temp_arr = []
 				
 				print(numbers)
 		#n -= 1
 	print(steps)
 
-var used_numbers : Array = []
 func generate_unique_random():
 	var random_number = -1
 	while true:
@@ -52,3 +56,10 @@ func generate_unique_random():
 			used_numbers.append(random_number)
 			break
 	return random_number
+
+func analyse_step():
+	return true
+
+func next_step():
+	if current_step < steps.size():
+		current_step += 1
