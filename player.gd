@@ -2,25 +2,33 @@ extends CharacterBody2D
 class_name Player
 
 @export_category('SCRIPT')
+signal no_lifes
+
 @export var SPEED = 200.0
 @export var JUMP_VELOCITY = -500.0
-@export var JUMP_RELEASE_FORCE = -200
-@export var ACCELERATION = 10
-@export var FRICTION = 10
-@export var ADD_FALL_GRAVITY = 4
-@export var canPick = true
+var JUMP_RELEASE_FORCE = -200
+var ACCELERATION = 10
+var FRICTION = 10
+var ADD_FALL_GRAVITY = 4
+var canPick = true
+var lifes = 6
+
+@onready var text = $RichTextLabel
 @onready var marker = $Marker2D
-@onready var sprite = $AnimatedSprite2D
+@onready var animatedSprite = $AnimatedSprite2D 
+#onready - só declara após o node estar carregado
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var GRAVITY = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-@onready var animatedSprite = $AnimatedSprite2D #só declara após o node estar carregado
-
 func _ready():
 	animatedSprite.sprite_frames = load("res://playerBeige.tres")
-
 	#setar spriteframes (permite mudar os frames do objeto)
+
+func _process(_delta):
+	if lifes == 0:
+		emit_signal("no_lifes")
+	text.text = "[shake rate=5 level=10]lifes: "+ str(lifes) +"[/shake]"
 
 func _physics_process(delta):
 	# aplica gravidade por delta
@@ -55,7 +63,6 @@ func _physics_process(delta):
 		if velocity.y > 0:
 			velocity.y += ADD_FALL_GRAVITY 
 			#gravidade adicional ao começar queda livre
-
 	move_and_slide()
 
 func apply_gravity(delta):

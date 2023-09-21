@@ -7,6 +7,8 @@
 size = Vector2(32, 32)
 
 [sub_resource type="LabelSettings" id="LabelSettings_kibqo"]
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_130ke"]
 size = Vector2(64, 64)
@@ -34,9 +36,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -16.0
-offset_top = -48.0
+offset_top = -16.0
 offset_right = 16.0
-offset_bottom = -16.0
+offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "1"

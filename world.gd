@@ -1,22 +1,27 @@
 extends Node2D
+@onready var player = $Player
 @onready var boxes_nodes = get_tree().get_nodes_in_group("boxes")
+@onready var platforms_nodes = get_tree().get_nodes_in_group("Platform")
 @onready var label = $Label
+
 var numbers = []
 var steps = []
-var current_step = 1
+var current_step = 0
 var used_numbers : Array = []
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
-	
 	for i in range(boxes_nodes.size()):
 		var unique_number = generate_unique_random()
 		numbers.append(unique_number)
-		boxes_nodes[i].label.set_text(str(unique_number))
-	
+		boxes_nodes[i].number = unique_number
+	#debug
 	print(numbers)
 	bubble_sort(numbers)
+	
+	#signal
+	player.no_lifes.connect(analyse_step)
+	next_step()
 
 func _process(_delta):
 	label.set_text("step: " + str(current_step) + " - " + str(steps[current_step]))
@@ -25,27 +30,31 @@ func bubble_sort(arr):
 	var n = arr.size()
 	var swapped
 	var temp_arr = []
+	
+	for item in arr:
+		temp_arr.append(item)
+	steps.append(temp_arr)
+	temp_arr = []
+	
 	while swapped != false:
 		swapped = false
-		
 		for i in range(1, n):
 			if arr[i-1] > arr[i]:
 				#debug
 				print("swap: ",arr[i - 1]," -> ", arr[i])
-								# registrar cada passo
-				for x in range(n):
-					temp_arr.append(numbers[x])
-				steps.append(temp_arr)
 				
 				var temp = arr[i - 1]
 				arr[i - 1] = arr[i]
 				arr[i] = temp
 				swapped = true
 				
-				temp_arr = []
+				# registrar cada passo
+				for x in range(n):
+					temp_arr.append(numbers[x])
+				steps.append(temp_arr)
 				
-				print(numbers)
-		#n -= 1
+				temp_arr = []
+		#n -= 1 -----otimização
 	print(steps)
 
 func generate_unique_random():
@@ -58,7 +67,17 @@ func generate_unique_random():
 	return random_number
 
 func analyse_step():
-	return true
+	print("steps=", steps[current_step])
+
+	for n in range(1, platforms_nodes.size()):
+		if not platforms_nodes[n].box.number == steps[current_step][n-1]:
+			gameover()
+			return
+	next_step()
+
+func gameover():
+	print("Game over!")
+	pass
 
 func next_step():
 	if current_step < steps.size():

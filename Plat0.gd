@@ -2,19 +2,23 @@ extends Area2D
 
 @onready var dropzone = get_node("DropZone")
 @onready var label = get_node("Label")
+var box_number
 var drop_position
-var is_occupied = false
+var cont_overlaps = 0
 
 func _ready():
 	drop_position = dropzone.global_position
-	label.set_text(str(is_occupied))
+	label.set_text(str(box_number))
 
 func _on_area_entered(area):
-	if area.is_in_group("boxArea"):
-		is_occupied = true
-		label.set_text(str(is_occupied))
+	#trackear quantas caixas estão na plataforma
+	if not area.is_in_group("boxArea") or cont_overlaps>1:
+		return
+	
+	cont_overlaps += 1
 
 func _on_area_exited(area):
-	if area.is_in_group("boxArea"):
-		is_occupied = false
-		label.set_text(str(is_occupied))
+	if not area.is_in_group("boxArea") or cont_overlaps>1:
+		return
+	
+	cont_overlaps -= 1
