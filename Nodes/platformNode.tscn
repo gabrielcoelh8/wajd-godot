@@ -8,7 +8,7 @@ radius = 48.0
 [sub_resource type="LabelSettings" id="LabelSettings_r21xo"]
 font_size = 13
 
-[node name="Plat0" type="Area2D" groups=["Platform"]]
+[node name="Platform" type="Area2D" groups=["Platform"]]
 collision_layer = 8
 collision_mask = 4
 script = ExtResource("1_4tscx")
@@ -27,6 +27,3 @@ offset_bottom = 42.0
 text = "debug"
 label_settings = SubResource("LabelSettings_r21xo")
 horizontal_alignment = 1
-
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
-[connection signal="area_exited" from="." to="." method="_on_area_exited"]

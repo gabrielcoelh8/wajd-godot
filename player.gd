@@ -10,7 +10,8 @@ var JUMP_RELEASE_FORCE = -200
 var ACCELERATION = 10
 var FRICTION = 10
 var ADD_FALL_GRAVITY = 4
-var canPick = true
+
+var canPick = false
 var lifes = 6
 
 @onready var text = $RichTextLabel
@@ -28,6 +29,7 @@ func _ready():
 func _process(_delta):
 	if lifes == 0:
 		emit_signal("no_lifes")
+	
 	text.text = "[shake rate=5 level=10]lifes: "+ str(lifes) +"[/shake]"
 
 func _physics_process(delta):
@@ -65,10 +67,19 @@ func _physics_process(delta):
 			#gravidade adicional ao começar queda livre
 	move_and_slide()
 
+func loss_life_handle():
+	lifes -= 1
+
+func renew_life():
+	lifes = 6
+
+func toggle_canPick():
+	canPick = not canPick
+
 func apply_gravity(delta):
 	if not is_on_floor():
 		velocity.y += GRAVITY * delta
-		
+
 func apply_friction():
 	velocity.x = move_toward(velocity.x, 0, FRICTION)
 

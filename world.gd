@@ -24,7 +24,7 @@ func _ready():
 	next_step()
 
 func _process(_delta):
-	label.set_text("step: " + str(current_step) + " - " + str(steps[current_step]))
+	label.set_text("next step: " + str(current_step) + " - " + str(steps[current_step]))
 
 func bubble_sort(arr):
 	var n = arr.size()
@@ -67,12 +67,11 @@ func generate_unique_random():
 	return random_number
 
 func analyse_step():
-	print("steps=", steps[current_step])
-
 	for n in range(1, platforms_nodes.size()):
-		if not platforms_nodes[n].box.number == steps[current_step][n-1]:
+		if not platforms_nodes[n].current_number == steps[current_step][n-1]:
 			gameover()
 			return
+	print("Win!")
 	next_step()
 
 func gameover():
@@ -80,5 +79,6 @@ func gameover():
 	pass
 
 func next_step():
+	player.renew_life()
 	if current_step < steps.size():
 		current_step += 1
