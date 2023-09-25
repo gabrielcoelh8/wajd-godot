@@ -32,6 +32,11 @@ func _process(_delta):
 	
 	text.text = "[shake rate=5 level=10]lifes: "+ str(lifes) +"[/shake]"
 
+func _unhandled_input(event):
+	if Input.is_action_just_pressed("ui_help"):
+		DialogueManager.show_example_dialogue_balloon(load("res://dialogue/main.dialogue"), "start")
+		return
+
 func _physics_process(delta):
 	# aplica gravidade por delta
 	apply_gravity(delta)

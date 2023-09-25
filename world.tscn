@@ -13,11 +13,20 @@ font_size = 34
 script = ExtResource("1_ao1eg")
 
 [node name="TileMap" parent="." instance=ExtResource("2_qjenv")]
+light_mask = 2
+visibility_layer = 2
+texture_filter = 3
 
 [node name="Player" parent="." instance=ExtResource("2_q7342")]
 texture_filter = 4
 texture_repeat = 1
-position = Vector2(88, -96)
+position = Vector2(128, -216)
+
+[node name="PointLight2D" parent="Player" index="0"]
+light_mask = 2
+visibility_layer = 2
+range_item_cull_mask = 2
+shadow_item_cull_mask = 3
 
 [node name="boxes" type="Node2D" parent="."]
 
