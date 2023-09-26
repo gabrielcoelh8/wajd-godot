@@ -32,7 +32,7 @@ func _process(_delta):
 	
 	text.text = "[shake rate=5 level=10]lifes: "+ str(lifes) +"[/shake]"
 
-func _unhandled_input(event):
+func _unhandled_input(_event):
 	if Input.is_action_just_pressed("ui_help"):
 		DialogueManager.show_example_dialogue_balloon(load("res://dialogue/main.dialogue"), "start")
 		return
@@ -73,7 +73,8 @@ func _physics_process(delta):
 	move_and_slide()
 
 func loss_life_handle():
-	lifes -= 1
+	if lifes > 0:
+		lifes -= 1
 
 func renew_life():
 	lifes = 6

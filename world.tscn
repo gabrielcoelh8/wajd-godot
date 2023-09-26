@@ -20,7 +20,7 @@ texture_filter = 3
 [node name="Player" parent="." instance=ExtResource("2_q7342")]
 texture_filter = 4
 texture_repeat = 1
-position = Vector2(128, -216)
+position = Vector2(133, 48)
 
 [node name="PointLight2D" parent="Player" index="0"]
 light_mask = 2

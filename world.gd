@@ -17,23 +17,21 @@ func _ready():
 		boxes_nodes[i].number = unique_number
 	#debug
 	print(numbers)
-	bubble_sort(numbers)
+	insertion_sort(numbers)
 	
 	#signal
 	player.no_lifes.connect(analyse_step)
 	next_step()
 
 func _process(_delta):
-	label.set_text("next step: " + str(current_step) + " - " + str(steps[current_step]))
+	pass
 
 func bubble_sort(arr):
 	var n = arr.size()
 	var swapped
 	var temp_arr = []
 	
-	for item in arr:
-		temp_arr.append(item)
-	steps.append(temp_arr)
+	register_step(arr, temp_arr)
 	temp_arr = []
 	
 	while swapped != false:
@@ -41,7 +39,7 @@ func bubble_sort(arr):
 		for i in range(1, n):
 			if arr[i-1] > arr[i]:
 				#debug
-				print("swap: ",arr[i - 1]," -> ", arr[i])
+				print("swap: ", arr[i - 1]," -> ", arr[i])
 				
 				var temp = arr[i - 1]
 				arr[i - 1] = arr[i]
@@ -49,13 +47,59 @@ func bubble_sort(arr):
 				swapped = true
 				
 				# registrar cada passo
-				for x in range(n):
-					temp_arr.append(numbers[x])
-				steps.append(temp_arr)
+				register_step(arr, temp_arr)
 				
 				temp_arr = []
 		#n -= 1 -----otimização
+
+func selection_sort(arr):
+	var temp_arr = []
+	var n = arr.size()
+	var pos_greatest
+	var temp
+	
+	register_step(arr, temp_arr)
+	temp_arr = []
+	
+	for i in range(n-1, 1, -1):
+		pos_greatest = 0
+		
+		for j in range(i):
+			if arr[j] > arr[pos_greatest]:
+				pos_greatest = j
+		temp = arr[i]
+		arr[i] = arr[pos_greatest]
+		arr[pos_greatest] = temp
+		
+		# registrar cada passo
+		register_step(arr, temp_arr)
+		temp_arr = []
+		
 	print(steps)
+
+func insertion_sort(arr):
+	var temp_arr = []
+	var n = arr.size()
+	var temp
+	var i
+	
+	#register_step(arr, temp_arr)
+	temp_arr = []
+	
+	for j in range(1, n-1):
+		temp = arr[j]
+		i = j
+		while i>0 and arr[i-1]>temp:
+			arr[i] = arr[i-1]
+			i -= 1
+		arr[i] = temp
+	print(arr)
+
+func register_step(arr, temp_arr):
+	for item in arr:
+		temp_arr.append(item)
+	steps.append(temp_arr)
+
 
 func generate_unique_random():
 	var random_number = -1
@@ -71,14 +115,16 @@ func analyse_step():
 		if not platforms_nodes[n].current_number == steps[current_step][n-1]:
 			gameover()
 			return
-	print("Win!")
 	next_step()
 
 func gameover():
-	print("Game over!")
+	label.set_text("Game over!")
 	pass
 
 func next_step():
-	player.renew_life()
-	if current_step < steps.size():
+	if current_step < steps.size()-1:
 		current_step += 1
+		player.renew_life()
+		label.set_text("help: " + str(current_step) + " -> " + str(steps[current_step]))
+		return
+	label.set_text("Win!")

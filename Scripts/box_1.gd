@@ -61,7 +61,7 @@ func _on_player_exited(body):
 		player_is_inside = false
 
 func _on_inside_platform(area):
-	print(area.is_occupied)
+	#print(area.is_occupied)
 	if not area.is_in_group("Platform") or area.is_occupied:
 		return
 	#get current area
@@ -73,7 +73,7 @@ func _on_inside_platform(area):
 
 func _on_exit_platform(area):
 	if not area.is_in_group("Platform") or area.is_occupied:
-		print("ocupada")
+		#print("ocupada")
 		return
 	#get area by marker of platform/area2D
 	current_area = null
