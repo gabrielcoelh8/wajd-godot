@@ -16,7 +16,7 @@ func _ready():
 		numbers.append(unique_number)
 		boxes_nodes[i].number = unique_number
 	#debug
-	print(numbers)
+	#print(numbers)
 	insertion_sort(numbers)
 	
 	#signal
@@ -78,28 +78,28 @@ func selection_sort(arr):
 	print(steps)
 
 func insertion_sort(arr):
-	var temp_arr = []
+	#var temp_arr = []
 	var n = arr.size()
 	var temp
 	var i
 	
 	#register_step(arr, temp_arr)
-	temp_arr = []
+	#temp_arr = []
 	
-	for j in range(1, n-1):
+	for j in range(1, n):
 		temp = arr[j]
-		i = j
-		while i>0 and arr[i-1]>temp:
-			arr[i] = arr[i-1]
+		i = j - 1
+		while i>=0 and arr[i]>temp:
+			arr[i+1] = arr[i]
 			i -= 1
-		arr[i] = temp
-	print(arr)
+			print("process: ", j, " - ", arr)
+		arr[i+1] = temp
+		print("process: ", j, " - ", arr)
 
 func register_step(arr, temp_arr):
 	for item in arr:
 		temp_arr.append(item)
 	steps.append(temp_arr)
-
 
 func generate_unique_random():
 	var random_number = -1

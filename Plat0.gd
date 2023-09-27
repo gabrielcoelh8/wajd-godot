@@ -11,4 +11,5 @@ func _ready():
 	drop_position = dropzone.global_position
 
 func _process(_delta):
-	label.set_text(str(current_number))
+	#label.set_text(str(current_number))
+	pass
