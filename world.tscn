@@ -26,10 +26,11 @@ position = Vector2(133, 48)
 light_mask = 2
 visibility_layer = 2
 position = Vector2(-2, -62)
-energy = 0.9
+color = Color(0.686275, 0.996078, 0.909804, 0.568627)
+energy = 1.18
 range_item_cull_mask = 2
 shadow_item_cull_mask = 3
-texture_scale = 0.9
+texture_scale = 2.25
 
 [node name="boxes" type="Node2D" parent="."]
 

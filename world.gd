@@ -17,7 +17,7 @@ func _ready():
 		boxes_nodes[i].number = unique_number
 	#debug
 	#print(numbers)
-	insertion_sort(numbers)
+	shaker_sort(numbers)
 	
 	#signal
 	player.no_lifes.connect(analyse_step)
@@ -58,9 +58,6 @@ func selection_sort(arr):
 	var pos_greatest
 	var temp
 	
-	register_step(arr, temp_arr)
-	temp_arr = []
-	
 	for i in range(n-1, 1, -1):
 		pos_greatest = 0
 		
@@ -77,24 +74,44 @@ func selection_sort(arr):
 		
 	print(steps)
 
-func insertion_sort(arr):
-	#var temp_arr = []
+func shaker_sort(arr):
+	var temp_arr = []
 	var n = arr.size()
 	var temp
-	var i
+	var swap: bool
 	
-	#register_step(arr, temp_arr)
-	#temp_arr = []
+	register_step(arr, temp_arr)
+	print("original: ", temp_arr)
+	temp_arr = []
 	
-	for j in range(1, n):
-		temp = arr[j]
-		i = j - 1
-		while i>=0 and arr[i]>temp:
-			arr[i+1] = arr[i]
-			i -= 1
-			print("process: ", j, " - ", arr)
-		arr[i+1] = temp
-		print("process: ", j, " - ", arr)
+	swap = true
+	while(swap):
+		swap = false
+		#left-right
+		for i in range(n-1):
+			if arr[i] > arr[i+1]:
+				temp = arr[i]
+				arr[i] = arr[i + 1]
+				arr[i + 1] = temp
+				swap = true
+				
+				register_step(arr, temp_arr)
+				temp_arr = []
+		if not swap:
+			break
+		swap = false
+		#right-left
+		for i in range(n-2, 0, -1):
+			if arr[i] > arr[i+1]:
+				temp = arr[i]
+				arr[i] = arr[i+1]
+				arr[i+1] = temp
+				swap = true
+				
+				register_step(arr, temp_arr)
+				temp_arr = []
+		
+		print("steps: ", steps)
 
 func register_step(arr, temp_arr):
 	for item in arr:
