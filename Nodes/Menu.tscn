@@ -1,0 +1,96 @@
+[gd_scene load_steps=5 format=3 uid="uid://caufmercuf1c2"]
+
+[ext_resource type="Texture2D" uid="uid://cnkeigeehr7u4" path="res://sprites/parallax/skill-desc_0003_bg.png" id="1_sjmps"]
+[ext_resource type="Texture2D" uid="uid://oeonyjr7k41a" path="res://sprites/parallax/skill-desc_0002_far-buildings.png" id="2_2gfqw"]
+[ext_resource type="Texture2D" uid="uid://c1320lp1opsum" path="res://sprites/parallax/skill-desc_0001_buildings.png" id="3_pu3te"]
+[ext_resource type="Texture2D" uid="uid://drtkycjs2qgnv" path="res://sprites/parallax/skill-desc_0000_foreground.png" id="4_l067b"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+custom_minimum_size = Vector2(1152, 648)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0, 0, 0, 1)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Background" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1000, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Background"]
+texture_filter = 5
+scale = Vector2(4.23162, 4.075)
+texture = ExtResource("1_sjmps")
+centered = false
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1500, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture_filter = 5
+position = Vector2(-5, 60)
+scale = Vector2(4.87793, 4.19014)
+texture = ExtResource("2_2gfqw")
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(800, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+texture_filter = 5
+position = Vector2(384.875, 457)
+scale = Vector2(2.84651, 2.58667)
+texture = ExtResource("3_pu3te")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(700, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+texture_filter = 5
+position = Vector2(319.75, 494.812)
+scale = Vector2(2.32537, 2.96514)
+texture = ExtResource("4_l067b")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.5
+offset_top = -68.0
+offset_right = 36.5
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Tutorial "
+
+[node name="Button2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Normal"
+
+[node name="Button3" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Teoria
+"
+
+[node name="Button4" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Sair"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)

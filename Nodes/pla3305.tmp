@@ -1,0 +1,76 @@
+[gd_scene load_steps=6 format=3 uid="uid://c0tr5ncyq4dk1"]
+
+[ext_resource type="SpriteFrames" uid="uid://6k82lw22eccf" path="res://sprites/playerBeige.tres" id="2_8dcsu"]
+[ext_resource type="Texture2D" uid="uid://by6irb20l6861" path="res://sprites/spot.png" id="2_igwjr"]
+[ext_resource type="SpriteFrames" uid="uid://ul6po1sxl874" path="res://sprites/hearts.tres" id="4_h53en"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iyrwh"]
+size = Vector2(80, 110)
+
+[sub_resource type="Theme" id="Theme_ogeel"]
+default_font_size = 26
+
+[node name="Player" type="CharacterBody2D"]
+scale = Vector2(0.5, 0.5)
+collision_layer = 2
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+z_index = -1
+position = Vector2(-16, -208)
+scale = Vector2(10.0931, 7.0188)
+color = Color(0.996078, 0.94902, 0, 0.568627)
+energy = 0.45
+shadow_enabled = true
+texture = ExtResource("2_igwjr")
+texture_scale = 1.71
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
+texture_filter = 3
+position = Vector2(0, -56)
+scale = Vector2(1.17647, 1.19624)
+sprite_frames = ExtResource("2_8dcsu")
+animation = &"run"
+autoplay = "idle"
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, -104)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -55)
+shape = SubResource("RectangleShape2D_iyrwh")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = -50.0
+offset_top = -210.0
+offset_right = 50.0
+offset_bottom = -162.0
+theme = SubResource("Theme_ogeel")
+bbcode_enabled = true
+fit_content = true
+
+[node name="hearts" type="Node2D" parent="."]
+position = Vector2(0, -150)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="hearts"]
+texture_filter = 3
+position = Vector2(-30, 0)
+scale = Vector2(2.85714, 2.85714)
+sprite_frames = ExtResource("4_h53en")
+animation = &"full_loss"
+autoplay = "idle"
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="hearts"]
+texture_filter = 3
+scale = Vector2(2.85714, 2.85714)
+sprite_frames = ExtResource("4_h53en")
+animation = &"full_loss"
+autoplay = "idle"
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="hearts"]
+texture_filter = 3
+position = Vector2(30, 0)
+scale = Vector2(2.85714, 2.85714)
+sprite_frames = ExtResource("4_h53en")
+animation = &"full_loss"
+autoplay = "idle"

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmnq4l1t0x5x6"
-path="res://.godot/imported/skill-desc_0000_foreground.png-8cb305f8ec4a136fb0e1453acb7856c0.ctex"
+uid="uid://drtkycjs2qgnv"
+path="res://.godot/imported/skill-desc_0000_foreground.png-c88a5afa3d5bf8220c44b1db3c55324d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/parallax/skill-desc_0000_foreground.png"
-dest_files=["res://.godot/imported/skill-desc_0000_foreground.png-8cb305f8ec4a136fb0e1453acb7856c0.ctex"]
+source_file="res://sprites/parallax/skill-desc_0000_foreground.png"
+dest_files=["res://.godot/imported/skill-desc_0000_foreground.png-c88a5afa3d5bf8220c44b1db3c55324d.ctex"]
 
 [params]
 

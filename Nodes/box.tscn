@@ -1,38 +1,35 @@
-[gd_scene load_steps=6 format=3 uid="uid://drhdukpy3ob3a"]
+[gd_scene load_steps=6 format=3 uid="uid://46m8i6xoqsmn"]
 
-[ext_resource type="Script" path="res://Nodes/box.gd" id="1_ksr2r"]
-[ext_resource type="Texture2D" uid="uid://dynyrxcrp8dwi" path="res://platformer_tiles.png" id="1_v8obd"]
+[ext_resource type="Script" path="res://scripts/Box.gd" id="1_ct6tn"]
+[ext_resource type="Texture2D" uid="uid://dhix64txjl7gd" path="res://sprites/tilemaps/platformer_tiles.png" id="2_d8ggq"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_c8sex"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4x2g7"]
 size = Vector2(32, 32)
 
-[sub_resource type="LabelSettings" id="LabelSettings_h437c"]
-outline_size = 4
+[sub_resource type="LabelSettings" id="LabelSettings_kibqo"]
+outline_size = 5
 outline_color = Color(0, 0, 0, 1)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_n6ft3"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_130ke"]
 size = Vector2(64, 64)
 
-[node name="Area2D" type="Area2D" groups=["boxArea"]]
+[node name="Box" type="RigidBody2D" groups=["boxes"]]
 collision_layer = 4
-collision_mask = 10
-script = ExtResource("1_ksr2r")
+mass = 1.41
+script = ExtResource("1_ct6tn")
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 3
 scale = Vector2(2, 2)
-texture = ExtResource("1_v8obd")
+texture = ExtResource("2_d8ggq")
 region_enabled = true
 region_rect = Rect2(112, 64, 16, 16)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-shape = SubResource("RectangleShape2D_c8sex")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4x2g7")
 debug_color = Color(0.690196, 0.498039, 0, 0.419608)
 
-[node name="Label" type="Label" parent="RigidBody2D"]
-visible = false
+[node name="Label" type="Label" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -45,14 +42,19 @@ offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "1"
-label_settings = SubResource("LabelSettings_h437c")
+label_settings = SubResource("LabelSettings_kibqo")
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_n6ft3")
+[node name="Area2D" type="Area2D" parent="." groups=["boxArea"]]
+collision_layer = 4
+collision_mask = 10
 
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_130ke")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_inside_platform"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_exit_platform"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_player_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_player_exited"]

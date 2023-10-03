@@ -26,4 +26,5 @@ func _enter_tree() -> void:
 
 
 func _on_dialogue_ended(_resource: DialogueResource):
+	print("saiu do dialogo")
 	get_tree().quit()

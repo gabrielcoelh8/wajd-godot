@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://oeonyjr7k41a"
-path="res://.godot/imported/skill-desc_0002_far-buildings.png-ec5516d7b8467b21d0ca3cd92de582f7.ctex"
+uid="uid://dkpwxqrwgm5mq"
+path="res://.godot/imported/heart.png-637031d2177d2e25a4da5c6e1a041571.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/parallax/skill-desc_0002_far-buildings.png"
-dest_files=["res://.godot/imported/skill-desc_0002_far-buildings.png-ec5516d7b8467b21d0ca3cd92de582f7.ctex"]
+source_file="res://sprites/interface/heart.png"
+dest_files=["res://.godot/imported/heart.png-637031d2177d2e25a4da5c6e1a041571.ctex"]
 
 [params]
 

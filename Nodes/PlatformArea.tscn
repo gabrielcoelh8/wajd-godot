@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://be8xdl6hx4y5r"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_va7ca"]
+radius = 48.0
+
+[node name="PlatformsArea" type="Node2D"]
+
+[node name="Plat0" type="Area2D" parent="." groups=["Platform"]]
+position = Vector2(-272, -37)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plat0"]
+position = Vector2(400, 200)
+shape = SubResource("CircleShape2D_va7ca")
+
+[node name="DropZone" type="Marker2D" parent="Plat0" groups=["Zone"]]
+position = Vector2(400, 160)
+
+[node name="Plat1" type="Area2D" parent="." groups=["Platform"]]
+position = Vector2(0, -3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plat1"]
+position = Vector2(400, 200)
+shape = SubResource("CircleShape2D_va7ca")
+
+[node name="DropZone" type="Marker2D" parent="Plat1" groups=["Zone"]]
+position = Vector2(400, 160)

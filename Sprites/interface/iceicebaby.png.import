@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://oeonyjr7k41a"
-path="res://.godot/imported/skill-desc_0002_far-buildings.png-ec5516d7b8467b21d0ca3cd92de582f7.ctex"
+uid="uid://cww6666pyyxtc"
+path="res://.godot/imported/iceicebaby.png-aaf9931f6194593c31ec8e6cda6658cc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/parallax/skill-desc_0002_far-buildings.png"
-dest_files=["res://.godot/imported/skill-desc_0002_far-buildings.png-ec5516d7b8467b21d0ca3cd92de582f7.ctex"]
+source_file="res://sprites/interface/iceicebaby.png"
+dest_files=["res://.godot/imported/iceicebaby.png-aaf9931f6194593c31ec8e6cda6658cc.ctex"]
 
 [params]
 

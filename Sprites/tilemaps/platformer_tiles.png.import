@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://oeonyjr7k41a"
-path="res://.godot/imported/skill-desc_0002_far-buildings.png-ec5516d7b8467b21d0ca3cd92de582f7.ctex"
+uid="uid://dhix64txjl7gd"
+path="res://.godot/imported/platformer_tiles.png-5f7ab34d6583fa21f1ada9401bf5d67d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/parallax/skill-desc_0002_far-buildings.png"
-dest_files=["res://.godot/imported/skill-desc_0002_far-buildings.png-ec5516d7b8467b21d0ca3cd92de582f7.ctex"]
+source_file="res://sprites/tilemaps/platformer_tiles.png"
+dest_files=["res://.godot/imported/platformer_tiles.png-5f7ab34d6583fa21f1ada9401bf5d67d.ctex"]
 
 [params]
 

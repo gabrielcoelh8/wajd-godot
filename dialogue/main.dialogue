@@ -1,13 +1,13 @@
 ~ start
 
-Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
-Nathan: Here are some choices.
-- First one
-	Nathan: You picked the first one.
-- Second one
-	Nathan: You picked the second one.
-- Start again => start
-- End the conversation => END
-Nathan: For more information see the online documentation.
+Nathan: [[Olá|Opa|Eai]], seja bem-vindo.
+Nathan: Escolha o tipo de algoritmo, por favor.
+- Bubble sort
+	Nathan: Esse é um algoritmo ruim.
+- Selection sort
+	Nathan: Um pouco melhor.
+- Não sei => start
+- Desisto => END
+Nathan: Para entender a teoria completa, volte ao menu inicial.
 
 => END
