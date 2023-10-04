@@ -1,14 +1,15 @@
-[gd_scene load_steps=12 format=3 uid="uid://c3cnuo6fb5ifc"]
+[gd_scene load_steps=13 format=3 uid="uid://c3cnuo6fb5ifc"]
 
-[ext_resource type="Script" path="res://scripts/World.gd" id="1_4mgx4"]
-[ext_resource type="PackedScene" uid="uid://cpakfslut0sdy" path="res://nodes/Tilemap.tscn" id="2_h0wxj"]
-[ext_resource type="Texture2D" uid="uid://dhix64txjl7gd" path="res://sprites/tilemaps/platformer_tiles.png" id="3_6uiyn"]
-[ext_resource type="PackedScene" uid="uid://c0tr5ncyq4dk1" path="res://nodes/Player.tscn" id="3_tgp7n"]
-[ext_resource type="PackedScene" uid="uid://46m8i6xoqsmn" path="res://nodes/Box.tscn" id="4_m56p2"]
-[ext_resource type="PackedScene" uid="uid://d4ejmido4py1o" path="res://nodes/Platform.tscn" id="5_lf2ox"]
+[ext_resource type="Script" path="res://scripts/World.gd" id="1_m0jhp"]
+[ext_resource type="PackedScene" uid="uid://cpakfslut0sdy" path="res://nodes/Tilemap.tscn" id="2_xrscc"]
+[ext_resource type="Texture2D" uid="uid://dhix64txjl7gd" path="res://sprites/tilemaps/platformer_tiles.png" id="3_y3wuv"]
+[ext_resource type="PackedScene" uid="uid://c0tr5ncyq4dk1" path="res://nodes/Player.tscn" id="4_go5re"]
+[ext_resource type="PackedScene" uid="uid://46m8i6xoqsmn" path="res://nodes/Box.tscn" id="5_sh0ku"]
+[ext_resource type="PackedScene" uid="uid://d4ejmido4py1o" path="res://nodes/Platform.tscn" id="6_5bis8"]
+[ext_resource type="AudioStream" uid="uid://djjrbikoksdqg" path="res://audio/ambience_sound.mp3" id="7_q1efw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_piajb"]
-texture = ExtResource("3_6uiyn")
+texture = ExtResource("3_y3wuv")
 1:0/0 = 0
 1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:0/0/physics_layer_0/angular_velocity = 0.0
@@ -258,9 +259,9 @@ font_size = 34
 
 [node name="World" type="Node2D"]
 process_mode = 3
-script = ExtResource("1_4mgx4")
+script = ExtResource("1_m0jhp")
 
-[node name="World" parent="." instance=ExtResource("2_h0wxj")]
+[node name="World" parent="." instance=ExtResource("2_xrscc")]
 light_mask = 2
 visibility_layer = 2
 texture_filter = 3
@@ -275,7 +276,7 @@ format = 2
 layer_0/z_index = 2
 layer_0/tile_data = PackedInt32Array(1114112, 327681, 3, 1114113, 327681, 3, 1179648, 327681, 4, 1179649, 327681, 4, 1245184, 65537, 4, 1245185, 65537, 4, 1114115, 196609, 3, 1179651, 196609, 4, 1114114, 131073, 3, 1179650, 131073, 4, 1114116, 262145, 3, 1114117, 262145, 3, 1179652, 262145, 4, 1179653, 262145, 4, 1245186, 65537, 4, 1245187, 65537, 4, 1245188, 65537, 4, 1245189, 65537, 4, 1114118, 65537, 3, 1114119, 65537, 3, 1114120, 65537, 3, 1114121, 65537, 3, 1114122, 65537, 3, 1114123, 65537, 3, 1114124, 65537, 3, 1114125, 65537, 3, 1114126, 65537, 3, 1114127, 65537, 3, 1114128, 65537, 3, 1114129, 65537, 3, 1114130, 65537, 3, 1114131, 65537, 3, 1114132, 65537, 3, 1114133, 65537, 3, 1114134, 65537, 3, 1114135, 65537, 3, 1114136, 65537, 3, 1114137, 65537, 3, 1114138, 65537, 3, 1114139, 65537, 3, 1179654, 65537, 4, 1245190, 65537, 4, 1245191, 65537, 4, 1245192, 65537, 4, 1245193, 65537, 4, 1245194, 65537, 4, 1245195, 65537, 4, 1245196, 65537, 4, 1245197, 65537, 4, 1245198, 65537, 4, 1245199, 65537, 4, 1245200, 65537, 4, 1245201, 65537, 4, 1245202, 65537, 4, 1245203, 65537, 4, 1245204, 65537, 4, 1245205, 65537, 4, 1245206, 65537, 4, 1245207, 65537, 4, 1245208, 65537, 4, 1245209, 65537, 4, 1179673, 65537, 4, 1179674, 65537, 4, 1179675, 65537, 4, 1245211, 65537, 4, 1245210, 65537, 4, 1179672, 65537, 4, 1179671, 65537, 4, 1179670, 65537, 4, 1179669, 65537, 4, 1179668, 65537, 4, 1179667, 65537, 4, 1179666, 65537, 4, 1179665, 65537, 4, 1179664, 65537, 4, 1179663, 65537, 4, 1179662, 65537, 4, 1179661, 65537, 4, 1179660, 65537, 4, 1179659, 65537, 4, 1179658, 65537, 4, 1179657, 65537, 4, 1179656, 65537, 4, 1179655, 65537, 4, 1114141, 196609, 3, 1114145, 196609, 3, 1179681, 196609, 4, 1179677, 196609, 4, 1114140, 262145, 3, 1114142, 262145, 3, 1114143, 262145, 3, 1114144, 262145, 3, 1179676, 327681, 4, 1179678, 327681, 4, 1179679, 327681, 4, 1179680, 327681, 4, 1179683, 196609, 4, 1114147, 196609, 3, 1114146, 131073, 3, 1179682, 131073, 4, 1245212, 65537, 4, 1245213, 65537, 4, 1245214, 65537, 4, 1245215, 65537, 4, 1245216, 65537, 4, 1245217, 65537, 4, 1245218, 65537, 4, 1245219, 65537, 4, 1310720, 65537, 4, 1310721, 65537, 4, 1310722, 65537, 4, 1310723, 65537, 4, 1310724, 65537, 4, 1310725, 65537, 4, 1310726, 65537, 4, 1310727, 65537, 4, 1310728, 65537, 4, 1310729, 65537, 4, 1310730, 65537, 4, 1310731, 65537, 4, 1310732, 65537, 4, 1310733, 65537, 4, 1310734, 65537, 4, 1310735, 65537, 4, 1310736, 65537, 4, 1310737, 65537, 4, 1310738, 65537, 4, 1310739, 65537, 4, 1310740, 65537, 4, 1310741, 65537, 4, 1310742, 65537, 4, 1310743, 65537, 4, 1310744, 65537, 4, 1310745, 65537, 4, 1310746, 65537, 4, 1310747, 65537, 4, 1310748, 65537, 4, 1310749, 65537, 4, 1310750, 65537, 4, 1310751, 65537, 4, 1310752, 65537, 4, 1310753, 65537, 4, 1310754, 65537, 4, 1310755, 65537, 4)
 
-[node name="Player" parent="." instance=ExtResource("3_tgp7n")]
+[node name="Player" parent="." instance=ExtResource("4_go5re")]
 process_mode = 1
 z_index = 3
 texture_filter = 4
@@ -294,29 +295,29 @@ texture_scale = 2.25
 
 [node name="boxes" type="Node2D" parent="."]
 
-[node name="Box1" parent="boxes" instance=ExtResource("4_m56p2")]
+[node name="Box1" parent="boxes" instance=ExtResource("5_sh0ku")]
 position = Vector2(400, 80)
 lock_rotation = true
 
-[node name="Box2" parent="boxes" instance=ExtResource("4_m56p2")]
+[node name="Box2" parent="boxes" instance=ExtResource("5_sh0ku")]
 position = Vector2(560, 80)
 lock_rotation = true
 
-[node name="Box3" parent="boxes" instance=ExtResource("4_m56p2")]
+[node name="Box3" parent="boxes" instance=ExtResource("5_sh0ku")]
 position = Vector2(720, 80)
 lock_rotation = true
 
-[node name="Box4" parent="boxes" instance=ExtResource("4_m56p2")]
+[node name="Box4" parent="boxes" instance=ExtResource("5_sh0ku")]
 position = Vector2(880, 80)
 lock_rotation = true
 
-[node name="Box5" parent="boxes" instance=ExtResource("4_m56p2")]
+[node name="Box5" parent="boxes" instance=ExtResource("5_sh0ku")]
 position = Vector2(1040, 80)
 lock_rotation = true
 
 [node name="Platforms" type="Node2D" parent="."]
 
-[node name="Plat0" parent="Platforms" instance=ExtResource("5_lf2ox")]
+[node name="Plat0" parent="Platforms" instance=ExtResource("6_5bis8")]
 position = Vector2(128, 160)
 
 [node name="Label" parent="Platforms/Plat0" index="2"]
@@ -326,7 +327,7 @@ offset_right = 41.0
 offset_bottom = 29.0
 text = "var temp"
 
-[node name="Plat1" parent="Platforms" instance=ExtResource("5_lf2ox")]
+[node name="Plat1" parent="Platforms" instance=ExtResource("6_5bis8")]
 position = Vector2(400, 192)
 
 [node name="Label" parent="Platforms/Plat1" index="2"]
@@ -336,7 +337,7 @@ offset_right = 36.0
 offset_bottom = 30.0
 text = "vetor[0]"
 
-[node name="Plat2" parent="Platforms" instance=ExtResource("5_lf2ox")]
+[node name="Plat2" parent="Platforms" instance=ExtResource("6_5bis8")]
 position = Vector2(560, 192)
 
 [node name="Label" parent="Platforms/Plat2" index="2"]
@@ -346,7 +347,7 @@ offset_right = 36.0
 offset_bottom = 30.0
 text = "vetor[1]"
 
-[node name="Plat3" parent="Platforms" instance=ExtResource("5_lf2ox")]
+[node name="Plat3" parent="Platforms" instance=ExtResource("6_5bis8")]
 position = Vector2(720, 192)
 
 [node name="Label" parent="Platforms/Plat3" index="2"]
@@ -356,7 +357,7 @@ offset_right = 38.0
 offset_bottom = 30.0
 text = "vetor[2]"
 
-[node name="Plat4" parent="Platforms" instance=ExtResource("5_lf2ox")]
+[node name="Plat4" parent="Platforms" instance=ExtResource("6_5bis8")]
 position = Vector2(880, 192)
 
 [node name="Label" parent="Platforms/Plat4" index="2"]
@@ -366,7 +367,7 @@ offset_right = 35.0
 offset_bottom = 30.0
 text = "vetor[3]"
 
-[node name="Plat5" parent="Platforms" instance=ExtResource("5_lf2ox")]
+[node name="Plat5" parent="Platforms" instance=ExtResource("6_5bis8")]
 position = Vector2(1040, 192)
 
 [node name="Label" parent="Platforms/Plat5" index="2"]
@@ -404,6 +405,10 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "debug"
 label_settings = SubResource("LabelSettings_p5my3")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_q1efw")
+autoplay = true
 
 [connection signal="no_lifes" from="Player" to="." method="_on_player_no_lifes"]
 

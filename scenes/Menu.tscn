@@ -1,8 +1,8 @@
 [gd_scene load_steps=19 format=3 uid="uid://caufmercuf1c2"]
 
-[ext_resource type="Texture2D" uid="uid://dhix64txjl7gd" path="res://sprites/tilemaps/platformer_tiles.png" id="1_5p0qi"]
-[ext_resource type="Script" path="res://scripts/Menu.gd" id="1_blq42"]
-[ext_resource type="AudioStream" uid="uid://brsk02ymltli" path="res://audio/cave.mp3" id="3_87ioy"]
+[ext_resource type="Script" path="res://scripts/Menu.gd" id="1_8yjgx"]
+[ext_resource type="Texture2D" uid="uid://dhix64txjl7gd" path="res://sprites/tilemaps/platformer_tiles.png" id="2_uo311"]
+[ext_resource type="AudioStream" uid="uid://brsk02ymltli" path="res://audio/cave.mp3" id="3_mwqp5"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_svxvk"]
 tile_data = PackedInt32Array(0, 720897, 2, 65536, 851969, 2, 131072, 458753, 2, 1, 786433, 2, 65537, 917505, 2, 131073, 458753, 2)
@@ -44,7 +44,7 @@ polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 polygon = PackedVector2Array(-8, 5.625, 8, 5.625, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x16g3"]
-texture = ExtResource("1_5p0qi")
+texture = ExtResource("2_uo311")
 1:1/0 = 0
 1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:1/0/physics_layer_0/angular_velocity = 0.0
@@ -342,7 +342,7 @@ pattern_2 = SubResource("TileMapPattern_sh6lx")
 pattern_3 = SubResource("TileMapPattern_ifvif")
 
 [node name="Menu" type="Node2D"]
-script = ExtResource("1_blq42")
+script = ExtResource("1_8yjgx")
 
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 5
@@ -370,12 +370,10 @@ layer_2/tile_data = PackedInt32Array(458757, 786433, 3, 458758, 851969, 3, 45875
 color = Color(0.709804, 0.717647, 0.941176, 1)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-visible = false
 position = Vector2(576, 324)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 position = Vector2(72, 32)
-scale = Vector2(1, 1)
 skew = -0.539307
 color = Color(1, 1, 1, 0.258824)
 energy = 0.85
@@ -428,7 +426,8 @@ layout_mode = 2
 text = "Sair"
 
 [node name="CaveSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_87ioy")
+stream = ExtResource("3_mwqp5")
+volume_db = 14.857
 autoplay = true
 
 [connection signal="pressed" from="Control/VBoxContainer/Tutorial" to="." method="_on_tutorial_pressed"]
