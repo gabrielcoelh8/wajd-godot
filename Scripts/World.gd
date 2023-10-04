@@ -11,11 +11,11 @@ var current_step = 0
 var used_numbers : Array = []
 var time = 0.0
 var final_time
-var is_paused = false
+var sort_type
 
 func _ready():
 	randomize()
-	get_tree().paused = false
+	get_tree().paused = true
 	
 	for i in range(boxes_nodes.size()):
 		var unique_number = generate_unique_random()
@@ -25,23 +25,35 @@ func _ready():
 	#signal
 	player.no_lifes.connect(analyse_step)
 	
+	DialogueManager.show_example_dialogue_balloon(load("res://dialogue/main.dialogue"), "start")
+	await DialogueManager.dialogue_ended
+	sort_type = Globals.sort_type
+	get_tree().paused = false
+	
 	#selection_sort, bubble_sort, shaker_sort
-	shaker_sort(numbers)
+	match sort_type:
+		"bubble_sort":
+			bubble_sort(numbers)
+		"selection_sort":
+			selection_sort(numbers)
+		"shaker_sort":
+			shaker_sort(numbers)
+	
+	timerLabel.visible = true
 	next_step()
 	
 	label.set_text("help: " + str(current_step) + " -> " + str(steps[current_step]))
 
 func _process(delta):
-	if(not is_paused):
+	if(not get_tree().paused):
 		time += delta
 	
 	timerLabel.set_text(str(snapped(time, 0.01)))
 
 func _unhandled_input(_event):
 	if Input.is_action_just_pressed("ui_help"):
-		DialogueManager.show_example_dialogue_balloon(load("res://dialogue/main.dialogue"), "start")
+		DialogueManager.show_example_dialogue_balloon(load("res://dialogue/main.dialogue"), "help")
 	if Input.is_action_just_pressed("ui_pause"):
-		is_paused = not is_paused
 		get_tree().paused = not get_tree().paused
 	if Input.is_action_just_pressed("ui_restart"):
 		get_tree().reload_current_scene()

@@ -281,7 +281,7 @@ process_mode = 1
 z_index = 3
 texture_filter = 4
 texture_repeat = 1
-position = Vector2(133, 48)
+position = Vector2(130, 92)
 
 [node name="PointLight2D" parent="Player" index="0"]
 light_mask = 2
@@ -293,25 +293,26 @@ shadow_item_cull_mask = 3
 texture_scale = 2.25
 
 [node name="boxes" type="Node2D" parent="."]
+position = Vector2(0, 1)
 
 [node name="Box1" parent="boxes" instance=ExtResource("5_sh0ku")]
-position = Vector2(400, 80)
+position = Vector2(398, 172)
 lock_rotation = true
 
 [node name="Box2" parent="boxes" instance=ExtResource("5_sh0ku")]
-position = Vector2(560, 80)
+position = Vector2(558, 172)
 lock_rotation = true
 
 [node name="Box3" parent="boxes" instance=ExtResource("5_sh0ku")]
-position = Vector2(720, 80)
+position = Vector2(718, 172)
 lock_rotation = true
 
 [node name="Box4" parent="boxes" instance=ExtResource("5_sh0ku")]
-position = Vector2(880, 80)
+position = Vector2(878, 172)
 lock_rotation = true
 
 [node name="Box5" parent="boxes" instance=ExtResource("5_sh0ku")]
-position = Vector2(1040, 80)
+position = Vector2(1038, 172)
 lock_rotation = true
 
 [node name="Platforms" type="Node2D" parent="."]
@@ -386,6 +387,7 @@ libraries = {
 }
 
 [node name="Help" type="Label" parent="."]
+visible = false
 offset_left = 573.0
 offset_top = 332.0
 offset_right = 676.0
@@ -400,6 +402,7 @@ stream = ExtResource("7_q1efw")
 autoplay = true
 
 [node name="TimerLabel" type="RichTextLabel" parent="."]
+visible = false
 offset_left = 1069.0
 offset_top = 7.0
 offset_right = 1155.0

@@ -1,18 +1,15 @@
 ~ start
 
 Nathan: [[Olá|Opa|Eai]], seja bem-vindo.
-Nathan: Escolha o tipo de algoritmo, por favor.
+Nathan: Escolha:
 - Bubble sort
-	Nathan: Certeza?
 	do set_sort_type("bubble_sort")
 - Selection sort
-	Nathan: Um pouco melhor.
 	do set_sort_type("selection_sort")
 - Shaker sort
-	Nathan: Um pouco melhor
 	do set_sort_type("shaker_sort")
 - Não sei => start
-Nathan: Para entender a teoria completa, volte ao menu inicial.
+Nathan: Boa sorte!
 
 => END
 
