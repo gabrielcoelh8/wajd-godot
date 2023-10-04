@@ -53,6 +53,7 @@ func _process(delta):
 func _unhandled_input(_event):
 	if Input.is_action_just_pressed("ui_help"):
 		DialogueManager.show_example_dialogue_balloon(load("res://dialogue/main.dialogue"), "help")
+		label.visible = true
 	if Input.is_action_just_pressed("ui_pause"):
 		get_tree().paused = not get_tree().paused
 	if Input.is_action_just_pressed("ui_restart"):
