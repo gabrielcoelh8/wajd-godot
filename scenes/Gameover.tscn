@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=3 uid="uid://bksqku17a3g8y"]
+
+[ext_resource type="Texture2D" uid="uid://d2kgiaeq4st17" path="res://sprites/parallax/background.png" id="1_0lntm"]
+[ext_resource type="Script" path="res://scripts/Gameover.gd" id="1_wfn01"]
+
+[node name="Gameover" type="Node2D"]
+script = ExtResource("1_wfn01")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 5
+custom_minimum_size = Vector2(1152, 648)
+offset_right = 320.0
+offset_bottom = 208.0
+texture = ExtResource("1_0lntm")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+top_level = true
+light_mask = 0
+texture_filter = 5
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = 60.0
+offset_right = 64.0
+offset_bottom = 252.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Continuar" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Continuar"
+
+[node name="Tutorial" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+disabled = true
+text = "Tutorial "
+
+[node name="Menu" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Menu principal"
+
+[node name="Label" type="RichTextLabel" parent="."]
+offset_left = 512.0
+offset_top = 384.0
+offset_right = 640.0
+offset_bottom = 416.0
+text = "final time"
+
+[connection signal="pressed" from="VBoxContainer/Continuar" to="." method="_on_continuar_pressed"]
+[connection signal="pressed" from="VBoxContainer/Tutorial" to="." method="_on_tutorial_pressed"]
+[connection signal="pressed" from="VBoxContainer/Menu" to="." method="_on_menu_pressed"]

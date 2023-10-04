@@ -3,14 +3,18 @@ extends Node2D
 @onready var boxes_nodes = get_tree().get_nodes_in_group("boxes")
 @onready var platforms_nodes = get_tree().get_nodes_in_group("Platform")
 @onready var label = $Help
+@onready var timerLabel = $TimerLabel
 
 var numbers = []
 var steps = []
 var current_step = 0
 var used_numbers : Array = []
+var time = 0.0
+var final_time
 
 func _ready():
 	randomize()
+	get_tree().paused = false
 	
 	for i in range(boxes_nodes.size()):
 		var unique_number = generate_unique_random()
@@ -27,13 +31,17 @@ func _ready():
 	
 	label.set_text("help: " + str(current_step) + " -> " + str(steps[current_step]))
 
+func _process(delta):
+	time += delta
+	timerLabel.set_text(str(snapped(time, 0.01)))
+
 func _unhandled_input(_event):
 	if Input.is_action_just_pressed("ui_help"):
 		DialogueManager.show_example_dialogue_balloon(load("res://dialogue/main.dialogue"), "start")
-		return
-	if Input.is_action_just_pressed("ui_accept"):
-		#get_tree().paused = not get_tree().paused
-		pass
+	if Input.is_action_just_pressed("ui_pause"):
+		get_tree().paused = not get_tree().paused
+	if Input.is_action_just_pressed("ui_restart"):
+		get_tree().reload_current_scene()
 
 func bubble_sort(arr):
 	var n = arr.size()
@@ -147,8 +155,10 @@ func analyse_step():
 	next_step()
 
 func gameover():
-	get_tree().paused = true
+	Globals.last_final_time = time
 	label.set_text("Game over!")
+	await get_tree().create_timer(1.0).timeout
+	get_tree().change_scene_to_file("res://scenes/Gameover.tscn")
 
 func next_step():
 	if current_step < steps.size()-1:
@@ -159,5 +169,4 @@ func next_step():
 	label.set_text("Win!")
 
 func _on_player_no_lifes():
-	await get_tree().create_timer(2.0).timeout
 	gameover()

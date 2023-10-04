@@ -410,16 +410,12 @@ alignment = 1
 [node name="Tutorial" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 0
+disabled = true
 text = "Tutorial "
 
 [node name="Normal" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
 text = "Normal"
-
-[node name="Teoria" type="Button" parent="Control/VBoxContainer"]
-layout_mode = 2
-text = "Teoria
-"
 
 [node name="Sair" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
@@ -432,5 +428,4 @@ autoplay = true
 
 [connection signal="pressed" from="Control/VBoxContainer/Tutorial" to="." method="_on_tutorial_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/Normal" to="." method="_on_normal_pressed"]
-[connection signal="pressed" from="Control/VBoxContainer/Teoria" to="." method="_on_teoria_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/Sair" to="." method="_on_sair_pressed"]
