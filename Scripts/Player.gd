@@ -13,11 +13,16 @@ signal lose_life(current_life, previous_life)
 @onready var ADD_FALL_GRAVITY = 4
 
 @onready var canPick = true
+@onready var isDrowning = false
 @onready var lifes = 6
 
 @onready var text = $RichTextLabel
 @onready var marker = $Marker2D
-@onready var animatedSprite = $AnimatedSprite2D 
+@onready var animatedSprite = $AnimatedSprite2D
+@onready var boxEquipSound = $BoxEquip
+@onready var boxEquipDrop = $BoxDrop
+@onready var footstepSound = $Footstep
+
 #onready - só declara após o node estar carregado
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -30,6 +35,11 @@ func _ready():
 func _process(_delta):
 	if lifes == 0:
 		emit_signal("no_lifes")
+	if isDrowning:
+		velocity.x = 1
+		velocity.y = 1
+		await get_tree().create_timer(1).timeout
+		loss_life_handle()
 	text.text = "[shake rate=5 level=10]lifes: "+ str(lifes) +"[/shake]"
 
 func _physics_process(delta):
@@ -44,9 +54,14 @@ func _physics_process(delta):
 		apply_friction()
 		#resistência física
 		animatedSprite.animation = "idle"
+		footstepSound.stream_paused = true
 	else:
 		apply_acceleration(input.x)
 		animatedSprite.animation = "run"
+		
+		if is_on_floor() and not isDrowning:
+			footstepSound.stream_paused = false
+		
 		if(input.x < 0):
 			animatedSprite.flip_h = true
 		elif(input.x > 0):
@@ -78,11 +93,16 @@ func loss_life_handle():
 func renew_life():
 	lifes = 6
 
-func toggle_canPick():
-	canPick = not canPick
+func onPick():
+	canPick = false
+	boxEquipSound.play()
+
+func onDrop():
+	canPick = true
+	boxEquipDrop.play()
 
 func apply_gravity(delta):
-	if not is_on_floor():
+	if not is_on_floor() and not isDrowning:
 		velocity.y += GRAVITY * delta
 
 func apply_friction():
@@ -90,3 +110,7 @@ func apply_friction():
 
 func apply_acceleration(amount):
 	velocity.x = move_toward(velocity.x, SPEED * amount, ACCELERATION)
+
+func drowing():
+	isDrowning = true
+	print("drowing in ma dreams")

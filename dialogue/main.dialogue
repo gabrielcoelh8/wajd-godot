@@ -1,7 +1,7 @@
 ~ start
 
-Nathan: [[Olá|Opa|Eai]], seja bem-vindo.
-Nathan: Escolha:
+Wajd: [[O que é um algoritmo?|Você é indeciso?|Eu também não saberia escolher.]]
+Wajd: Escolha:
 - Bubble sort
 	do set_sort_type("bubble_sort")
 - Selection sort
@@ -9,12 +9,12 @@ Nathan: Escolha:
 - Shaker sort
 	do set_sort_type("shaker_sort")
 - Não sei => start
-Nathan: Boa sorte!
+Wajd: Boa sorte!
 
 => END
 
 ~ help
 
-Nathan: [[Olá, não quero te ajudar|Opa, se vira.|Eai, deveria estudar mais.]]
+Wajd: [[Olá, não quero te ajudar|Opa, se vira.|Eai, deveria estudar mais.]]
 
 => END

@@ -4,6 +4,8 @@ extends Node2D
 @onready var platforms_nodes = get_tree().get_nodes_in_group("Platform")
 @onready var label = $Help
 @onready var timerLabel = $TimerLabel
+@onready var timerSound = $TimerSound
+@onready var drownSound = $DrownSound
 
 var numbers = []
 var steps = []
@@ -30,7 +32,8 @@ func _ready():
 	sort_type = Globals.sort_type
 	get_tree().paused = false
 	
-	#selection_sort, bubble_sort, shaker_sort
+	
+	#switch
 	match sort_type:
 		"bubble_sort":
 			bubble_sort(numbers)
@@ -40,9 +43,10 @@ func _ready():
 			shaker_sort(numbers)
 	
 	timerLabel.visible = true
+	timerSound.play()
 	next_step()
 	
-	label.set_text("help: " + str(current_step) + " -> " + str(steps[current_step]))
+	label.set_text(str(steps[current_step]))
 
 func _process(delta):
 	if(not get_tree().paused):
@@ -172,17 +176,27 @@ func analyse_step():
 
 func gameover():
 	Globals.last_final_time = time
-	label.set_text("Game over!")
+	#label.set_text("Game over!")
 	await get_tree().create_timer(1.0).timeout
 	get_tree().change_scene_to_file("res://scenes/Gameover.tscn")
+	Globals.win_verify = false
 
 func next_step():
 	if current_step < steps.size()-1:
 		current_step += 1
 		player.renew_life()
-		label.set_text("help: " + str(current_step) + " -> " + str(steps[current_step]))
+		label.set_text(str(steps[current_step]))
 		return
-	label.set_text("Win!")
+	Globals.win_verify = true
+	#label.set_text("Win!")
 
 func _on_player_no_lifes():
+	gameover()
+
+func _on_drowing_area_body_entered(body: CharacterBody2D):
+	if body is Player:
+		drownSound.play(3.0)
+		body.drowing()
+
+func _on_death_area_body_entered(_body):
 	gameover()

@@ -33,11 +33,11 @@ func _input(_event):
 	#input listeners
 	if Input.is_action_just_pressed("ui_pick") and player.canPick and player_is_inside:
 		pick_handle()
-		player.toggle_canPick()
+		player.onPick()
 	
 	if Input.is_action_just_pressed("ui_drop") and on_air == true and current_area.is_occupied == false:
 		drop_handle()
-		player.toggle_canPick()
+		player.onDrop()
 
 func pick_handle():
 	current_area.current_number = null

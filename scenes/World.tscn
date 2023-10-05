@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c3cnuo6fb5ifc"]
+[gd_scene load_steps=17 format=3 uid="uid://c3cnuo6fb5ifc"]
 
 [ext_resource type="Script" path="res://scripts/World.gd" id="1_m0jhp"]
 [ext_resource type="PackedScene" uid="uid://cpakfslut0sdy" path="res://nodes/Tilemap.tscn" id="2_xrscc"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://46m8i6xoqsmn" path="res://nodes/Box.tscn" id="5_sh0ku"]
 [ext_resource type="PackedScene" uid="uid://d4ejmido4py1o" path="res://nodes/Platform.tscn" id="6_5bis8"]
 [ext_resource type="AudioStream" uid="uid://djjrbikoksdqg" path="res://audio/ambience_sound.mp3" id="7_q1efw"]
+[ext_resource type="AudioStream" uid="uid://hweetbesj2gt" path="res://audio/timer_sound.mp3" id="8_rxsyf"]
+[ext_resource type="AudioStream" uid="uid://ujgbg6mqlxpk" path="res://audio/underwater_sound.mp3" id="9_pkyao"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_piajb"]
 texture = ExtResource("3_y3wuv")
@@ -246,6 +248,9 @@ texture = ExtResource("3_y3wuv")
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_piajb")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f6vpa"]
+size = Vector2(353, 63)
+
 [sub_resource type="Animation" id="Animation_86bym"]
 resource_name = "new_animation"
 
@@ -256,6 +261,9 @@ _data = {
 
 [sub_resource type="LabelSettings" id="LabelSettings_p5my3"]
 font_size = 34
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ve5kq"]
+size = Vector2(169, 667)
 
 [node name="World" type="Node2D"]
 process_mode = 3
@@ -273,8 +281,19 @@ layer_2/tile_data = PackedInt32Array(327682, 655361, 2, 393227, 917505, 1, 39322
 z_index = 2
 tile_set = SubResource("TileSet_y7udd")
 format = 2
-layer_0/z_index = 2
+layer_0/modulate = Color(1, 1, 1, 0.686275)
+layer_0/z_index = 4
 layer_0/tile_data = PackedInt32Array(1114112, 327681, 3, 1114113, 327681, 3, 1179648, 327681, 4, 1179649, 327681, 4, 1245184, 65537, 4, 1245185, 65537, 4, 1114115, 196609, 3, 1179651, 196609, 4, 1114114, 131073, 3, 1179650, 131073, 4, 1114116, 262145, 3, 1114117, 262145, 3, 1179652, 262145, 4, 1179653, 262145, 4, 1245186, 65537, 4, 1245187, 65537, 4, 1245188, 65537, 4, 1245189, 65537, 4, 1114118, 65537, 3, 1114119, 65537, 3, 1114120, 65537, 3, 1114121, 65537, 3, 1114122, 65537, 3, 1114123, 65537, 3, 1114124, 65537, 3, 1114125, 65537, 3, 1114126, 65537, 3, 1114127, 65537, 3, 1114128, 65537, 3, 1114129, 65537, 3, 1114130, 65537, 3, 1114131, 65537, 3, 1114132, 65537, 3, 1114133, 65537, 3, 1114134, 65537, 3, 1114135, 65537, 3, 1114136, 65537, 3, 1114137, 65537, 3, 1114138, 65537, 3, 1114139, 65537, 3, 1179654, 65537, 4, 1245190, 65537, 4, 1245191, 65537, 4, 1245192, 65537, 4, 1245193, 65537, 4, 1245194, 65537, 4, 1245195, 65537, 4, 1245196, 65537, 4, 1245197, 65537, 4, 1245198, 65537, 4, 1245199, 65537, 4, 1245200, 65537, 4, 1245201, 65537, 4, 1245202, 65537, 4, 1245203, 65537, 4, 1245204, 65537, 4, 1245205, 65537, 4, 1245206, 65537, 4, 1245207, 65537, 4, 1245208, 65537, 4, 1245209, 65537, 4, 1179673, 65537, 4, 1179674, 65537, 4, 1179675, 65537, 4, 1245211, 65537, 4, 1245210, 65537, 4, 1179672, 65537, 4, 1179671, 65537, 4, 1179670, 65537, 4, 1179669, 65537, 4, 1179668, 65537, 4, 1179667, 65537, 4, 1179666, 65537, 4, 1179665, 65537, 4, 1179664, 65537, 4, 1179663, 65537, 4, 1179662, 65537, 4, 1179661, 65537, 4, 1179660, 65537, 4, 1179659, 65537, 4, 1179658, 65537, 4, 1179657, 65537, 4, 1179656, 65537, 4, 1179655, 65537, 4, 1114141, 196609, 3, 1114145, 196609, 3, 1179681, 196609, 4, 1179677, 196609, 4, 1114140, 262145, 3, 1114142, 262145, 3, 1114143, 262145, 3, 1114144, 262145, 3, 1179676, 327681, 4, 1179678, 327681, 4, 1179679, 327681, 4, 1179680, 327681, 4, 1179683, 196609, 4, 1114147, 196609, 3, 1114146, 131073, 3, 1179682, 131073, 4, 1245212, 65537, 4, 1245213, 65537, 4, 1245214, 65537, 4, 1245215, 65537, 4, 1245216, 65537, 4, 1245217, 65537, 4, 1245218, 65537, 4, 1245219, 65537, 4, 1310720, 65537, 4, 1310721, 65537, 4, 1310722, 65537, 4, 1310723, 65537, 4, 1310724, 65537, 4, 1310725, 65537, 4, 1310726, 65537, 4, 1310727, 65537, 4, 1310728, 65537, 4, 1310729, 65537, 4, 1310730, 65537, 4, 1310731, 65537, 4, 1310732, 65537, 4, 1310733, 65537, 4, 1310734, 65537, 4, 1310735, 65537, 4, 1310736, 65537, 4, 1310737, 65537, 4, 1310738, 65537, 4, 1310739, 65537, 4, 1310740, 65537, 4, 1310741, 65537, 4, 1310742, 65537, 4, 1310743, 65537, 4, 1310744, 65537, 4, 1310745, 65537, 4, 1310746, 65537, 4, 1310747, 65537, 4, 1310748, 65537, 4, 1310749, 65537, 4, 1310750, 65537, 4, 1310751, 65537, 4, 1310752, 65537, 4, 1310753, 65537, 4, 1310754, 65537, 4, 1310755, 65537, 4)
+
+[node name="DrowingArea" type="Area2D" parent="World/Water"]
+z_index = 2
+position = Vector2(106, 282.5)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Water/DrowingArea"]
+position = Vector2(166.5, 20.5)
+shape = SubResource("RectangleShape2D_f6vpa")
+debug_color = Color(0.87451, 0.247059, 0.611765, 0.419608)
 
 [node name="Player" parent="." instance=ExtResource("4_go5re")]
 process_mode = 1
@@ -397,10 +416,6 @@ grow_vertical = 2
 text = "debug"
 label_settings = SubResource("LabelSettings_p5my3")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_q1efw")
-autoplay = true
-
 [node name="TimerLabel" type="RichTextLabel" parent="."]
 visible = false
 offset_left = 1069.0
@@ -421,7 +436,33 @@ shadow_enabled = true
 shadow_filter = 2
 shadow_filter_smooth = 1.5
 
+[node name="DeathArea" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DeathArea"]
+position = Vector2(-85.5, 185.5)
+shape = SubResource("RectangleShape2D_ve5kq")
+debug_color = Color(0.913725, 0, 0.713726, 0.419608)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathArea"]
+position = Vector2(1237, 176)
+shape = SubResource("RectangleShape2D_ve5kq")
+debug_color = Color(0.913725, 0, 0.713726, 0.419608)
+
+[node name="TimerSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_rxsyf")
+
+[node name="AmbienceAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_q1efw")
+autoplay = true
+
+[node name="DrownSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_pkyao")
+volume_db = 5.622
+
+[connection signal="body_entered" from="World/Water/DrowingArea" to="." method="_on_drowing_area_body_entered"]
 [connection signal="no_lifes" from="Player" to="." method="_on_player_no_lifes"]
+[connection signal="body_entered" from="DeathArea" to="." method="_on_death_area_body_entered"]
 
 [editable path="Player"]
 [editable path="boxes/Box1"]
