@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bksqku17a3g8y"]
+[gd_scene load_steps=5 format=3 uid="uid://bksqku17a3g8y"]
 
 [ext_resource type="Texture2D" uid="uid://d2kgiaeq4st17" path="res://sprites/parallax/background.png" id="1_0lntm"]
 [ext_resource type="Script" path="res://scripts/Gameover.gd" id="1_wfn01"]
 [ext_resource type="AudioStream" uid="uid://y87tnrr5rcuf" path="res://audio/crowd_sound.mp3" id="3_l8pc6"]
+[ext_resource type="Texture2D" uid="uid://cjusktpbf7k8p" path="res://sprites/interface/coinGold.png" id="4_nxhcg"]
 
 [node name="Gameover" type="Node2D"]
 script = ExtResource("1_wfn01")
@@ -46,10 +47,10 @@ layout_mode = 2
 text = "Menu principal"
 
 [node name="Label" type="RichTextLabel" parent="."]
-offset_left = 512.0
-offset_top = 384.0
-offset_right = 664.0
-offset_bottom = 416.0
+offset_left = 480.0
+offset_top = 317.0
+offset_right = 832.0
+offset_bottom = 349.0
 theme_override_colors/default_color = Color(0, 0, 0, 0.721569)
 text = "final time"
 fit_content = true
@@ -77,6 +78,32 @@ fit_content = true
 stream = ExtResource("3_l8pc6")
 volume_db = -0.48
 autoplay = true
+
+[node name="CoinControl" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 472.0
+offset_top = 336.0
+offset_right = 630.0
+offset_bottom = 423.0
+
+[node name="StepLabel" type="RichTextLabel" parent="CoinControl"]
+texture_filter = 5
+layout_mode = 0
+offset_left = 47.0
+offset_top = 12.0
+offset_right = 74.0
+offset_bottom = 41.0
+theme_override_colors/default_color = Color(0, 0, 0, 0.623529)
+theme_override_font_sizes/normal_font_size = 20
+text = "0"
+fit_content = true
+
+[node name="CoinSprite" type="Sprite2D" parent="CoinControl"]
+texture_filter = 5
+position = Vector2(26, 25)
+scale = Vector2(0.707143, 0.716327)
+texture = ExtResource("4_nxhcg")
 
 [connection signal="pressed" from="VBoxContainer/Continuar" to="." method="_on_continuar_pressed"]
 [connection signal="pressed" from="VBoxContainer/Tutorial" to="." method="_on_tutorial_pressed"]

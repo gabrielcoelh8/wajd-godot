@@ -10,3 +10,7 @@ func _on_player_lose_life(_current_life, previous_life):
 		hearts[heartIndex].play("full_loss")
 	else:
 		hearts[heartIndex].play("mid_loss")
+
+func _on_player_renew_hearts():
+	for heart in hearts:
+		heart.play("reset")

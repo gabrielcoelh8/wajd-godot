@@ -4,6 +4,7 @@ class_name Player
 @export_category('SCRIPT')
 signal no_lifes
 signal lose_life(current_life, previous_life)
+signal renew_hearts
 
 @export var SPEED = 200.0
 @export var JUMP_VELOCITY = -500.0
@@ -35,11 +36,11 @@ func _ready():
 func _process(_delta):
 	if lifes == 0:
 		emit_signal("no_lifes")
+	
 	if isDrowning:
 		velocity.x = 1
 		velocity.y = 1
-		await get_tree().create_timer(1).timeout
-		loss_life_handle()
+		
 	text.text = "[shake rate=5 level=10]lifes: "+ str(lifes) +"[/shake]"
 
 func _physics_process(delta):
@@ -91,6 +92,7 @@ func loss_life_handle():
 	emit_signal("lose_life", lifes, previous_life)
 
 func renew_life():
+	emit_signal("renew_hearts")
 	lifes = 6
 
 func onPick():

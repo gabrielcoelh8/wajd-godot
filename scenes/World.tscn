@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c3cnuo6fb5ifc"]
+[gd_scene load_steps=19 format=3 uid="uid://c3cnuo6fb5ifc"]
 
 [ext_resource type="Script" path="res://scripts/World.gd" id="1_m0jhp"]
 [ext_resource type="PackedScene" uid="uid://cpakfslut0sdy" path="res://nodes/Tilemap.tscn" id="2_xrscc"]
@@ -9,6 +9,8 @@
 [ext_resource type="AudioStream" uid="uid://djjrbikoksdqg" path="res://audio/ambience_sound.mp3" id="7_q1efw"]
 [ext_resource type="AudioStream" uid="uid://hweetbesj2gt" path="res://audio/timer_sound.mp3" id="8_rxsyf"]
 [ext_resource type="AudioStream" uid="uid://ujgbg6mqlxpk" path="res://audio/underwater_sound.mp3" id="9_pkyao"]
+[ext_resource type="Texture2D" uid="uid://cjusktpbf7k8p" path="res://sprites/interface/coinGold.png" id="10_4rxss"]
+[ext_resource type="AudioStream" uid="uid://c81dchuvfk6ge" path="res://audio/coin_sound.mp3" id="10_c4rpk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_piajb"]
 texture = ExtResource("3_y3wuv")
@@ -311,6 +313,11 @@ range_item_cull_mask = 2
 shadow_item_cull_mask = 3
 texture_scale = 2.25
 
+[node name="1" parent="Player/hearts" index="0"]
+animation = &"reset"
+frame = 4
+frame_progress = 1.0
+
 [node name="boxes" type="Node2D" parent="."]
 position = Vector2(0, 1)
 
@@ -457,11 +464,40 @@ stream = ExtResource("7_q1efw")
 autoplay = true
 
 [node name="DrownSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(545, 586)
 stream = ExtResource("9_pkyao")
 volume_db = 5.622
 
+[node name="CoinSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_c4rpk")
+
+[node name="CoinControl" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 12.0
+offset_top = 8.0
+offset_right = 170.0
+offset_bottom = 95.0
+
+[node name="StepLabel" type="RichTextLabel" parent="CoinControl"]
+texture_filter = 5
+layout_mode = 0
+offset_left = 47.0
+offset_top = 12.0
+offset_right = 74.0
+offset_bottom = 41.0
+theme_override_font_sizes/normal_font_size = 17
+text = "0"
+fit_content = true
+
+[node name="CoinSprite" type="Sprite2D" parent="CoinControl"]
+texture_filter = 5
+position = Vector2(26, 25)
+scale = Vector2(0.707143, 0.716327)
+texture = ExtResource("10_4rxss")
+
 [connection signal="body_entered" from="World/Water/DrowingArea" to="." method="_on_drowing_area_body_entered"]
-[connection signal="no_lifes" from="Player" to="." method="_on_player_no_lifes"]
+[connection signal="renew_hearts" from="Player" to="Player/hearts" method="_on_player_renew_hearts"]
 [connection signal="body_entered" from="DeathArea" to="." method="_on_death_area_body_entered"]
 
 [editable path="Player"]
