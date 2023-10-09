@@ -34,12 +34,11 @@ func _ready():
 	#setar spriteframes (permite mudar os frames do objeto)
 
 func _process(_delta):
-	if lifes == 0:
-		emit_signal("no_lifes")
-	
 	if isDrowning:
 		velocity.x = 1
 		velocity.y = 1
+		#await get_tree().create_timer(1).timeout
+		loss_life_handle()
 		
 	text.text = "[shake rate=5 level=10]lifes: "+ str(lifes) +"[/shake]"
 
@@ -73,6 +72,7 @@ func _physics_process(delta):
 		if Input.is_action_pressed("ui_up"):
 			velocity.y = JUMP_VELOCITY
 			#aplicar força de salto
+			footstepSound.stream_paused = true
 	else:
 		animatedSprite.animation = "jump"
 		if Input.is_action_just_released("ui_up") and velocity.y < JUMP_RELEASE_FORCE: 
@@ -85,6 +85,13 @@ func _physics_process(delta):
 
 func loss_life_handle():
 	if lifes == 0:
+		return
+	
+	if lifes == 1:
+		lifes -= 1
+		var previous_life = lifes+1 
+		emit_signal("lose_life", lifes, previous_life)
+		emit_signal("no_lifes")
 		return
 	
 	lifes -= 1
@@ -115,4 +122,4 @@ func apply_acceleration(amount):
 
 func drowing():
 	isDrowning = true
-	print("drowing in ma dreams")
+	print("drowing imma dreams")

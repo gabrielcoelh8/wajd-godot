@@ -1,7 +1,7 @@
 ~ start
 
-Wajd: [[O que é um algoritmo?|Você é indeciso?|Eu também não saberia escolher.]]
-Wajd: Escolha:
+Coco: [[O que é um algoritmo?|Você é indeciso?|Eu também não saberia escolher.]]
+Coco: Escolha:
 - Bubble sort
 	do set_sort_type("bubble_sort")
 - Selection sort
@@ -9,12 +9,12 @@ Wajd: Escolha:
 - Shaker sort
 	do set_sort_type("shaker_sort")
 - Não sei => start
-Wajd: Boa sorte!
+Coco: Boa sorte!
 
 => END
 
 ~ help
 
-Wajd: Sempre que pedir ajuda seu tempo de execução aumentará em 10 segundos no fim da partida.
+Nathan: Sempre que pedir ajuda seu tempo de execução aumentará em 10 segundos no fim da partida.
 
 => END

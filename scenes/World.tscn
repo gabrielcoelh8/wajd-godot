@@ -435,7 +435,6 @@ text = "timer"
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 position = Vector2(-13, 19)
 rotation = -0.71384
-scale = Vector2(1, 1)
 skew = 0.417134
 color = Color(0.177156, 0.362108, 0.419841, 1)
 energy = 0.54

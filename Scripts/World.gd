@@ -31,7 +31,7 @@ func _ready():
 	#signal
 	player.no_lifes.connect(no_lifes_handle)
 	
-	DialogueManager.show_example_dialogue_balloon(load("res://dialogue/main.dialogue"), "start")
+	show_dialogue(load("res://dialogue/main.dialogue"), "start")
 	await DialogueManager.dialogue_ended
 	sort_type = Globals.sort_type
 	get_tree().paused = false
@@ -59,7 +59,7 @@ func _process(delta):
 
 func _unhandled_input(_event):
 	if Input.is_action_just_pressed("ui_help"):
-		DialogueManager.show_example_dialogue_balloon(load("res://dialogue/main.dialogue"), "help")
+		show_dialogue(load("res://dialogue/main.dialogue"), "help")
 		label.visible = true
 		await get_tree().create_timer(5.0).timeout
 		punished_time += 10
@@ -212,3 +212,9 @@ func _on_drowing_area_body_entered(body: CharacterBody2D):
 
 func _on_death_area_body_entered(_body):
 	gameover(false)
+
+func show_dialogue(resource: DialogueResource, title: String = "0", extra_game_states: Array = []) -> void:
+	var ExampleBalloonScene = load("res://dialogue/visual_novel_balloon/visual_novel_balloon.tscn")
+	var balloon: Node = ExampleBalloonScene.instantiate()
+	get_tree().current_scene.add_child(balloon)
+	balloon.start(resource, title, extra_game_states)
