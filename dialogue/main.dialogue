@@ -1,6 +1,9 @@
 ~ start
 
-Coco: [[O que é um algoritmo?|Você é indeciso?|Eu também não saberia escolher.]]
+Coco: Você tem 45 segundos para completar a fase.
+Coco: Sempre que levantar ou soltar uma caixa perderá meia-vida.
+Coco: Pode pedir ajuda apertando "H", mas vai perder 5 segundos de tempo.
+Coco: Agora a melhor parte...
 Coco: Escolha:
 - Bubble sort
 	do set_sort_type("bubble_sort")
@@ -9,12 +12,13 @@ Coco: Escolha:
 - Shaker sort
 	do set_sort_type("shaker_sort")
 - Não sei => start
+	[[Você é indeciso?||Eu também não saberia escolher.]]
 Coco: Boa sorte!
 
 => END
 
 ~ help
 
-Nathan: Sempre que pedir ajuda seu tempo de execução aumentará em 10 segundos no fim da partida.
+Nathan: Você perdeu 5 segundos por pedir ajuda...
 
 => END

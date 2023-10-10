@@ -1,4 +1,6 @@
 extends Node2D
+signal time_end
+
 @onready var player = $Player
 @onready var boxes_nodes = get_tree().get_nodes_in_group("boxes")
 @onready var platforms_nodes = get_tree().get_nodes_in_group("Platform")
@@ -13,8 +15,8 @@ var numbers = []
 var steps = []
 var current_step = 0
 var used_numbers : Array = []
-var time = 0.0
-var punished_time = 0.0
+var time = 45.0
+var punished_time = 5.0
 var coins = 0
 var final_time
 var sort_type
@@ -30,6 +32,7 @@ func _ready():
 	
 	#signal
 	player.no_lifes.connect(no_lifes_handle)
+	time_end.connect(end_time_handle)
 	
 	show_dialogue(load("res://dialogue/main.dialogue"), "start")
 	await DialogueManager.dialogue_ended
@@ -52,17 +55,22 @@ func _ready():
 	label.set_text(str(steps[current_step]))
 
 func _process(delta):
-	if(not get_tree().paused):
-		time += delta
+	if(not get_tree().paused) and time > 0:
+		time -= delta
+	
+	if time <= 0.00:
+		time = clamp(time, 0.00, 30.0)
+		time_end.emit()
+	
 	coinLabel.set_text(str(coins))
 	timerLabel.set_text(str(snapped(time, 0.01)))
 
 func _unhandled_input(_event):
 	if Input.is_action_just_pressed("ui_help"):
+		time -= punished_time
 		show_dialogue(load("res://dialogue/main.dialogue"), "help")
 		label.visible = true
-		await get_tree().create_timer(5.0).timeout
-		punished_time += 10
+		await get_tree().create_timer(10.0).timeout
 		label.visible = false
 	if Input.is_action_just_pressed("ui_pause"):
 		get_tree().paused = not get_tree().paused
@@ -182,6 +190,9 @@ func no_lifes_handle():
 	else:
 		gameover(false)
 
+func end_time_handle():
+	gameover(false)
+
 func analyse_step():
 	for n in range(1, platforms_nodes.size()):
 		if not platforms_nodes[n].current_number == steps[current_step][n-1]:
@@ -192,25 +203,26 @@ func gameover(win_verify):
 	Globals.win_verify = win_verify
 	Globals.last_final_time = time
 	Globals.last_coins = coins
-	Globals.last_punished_time = punished_time
+	Globals.last_time = time
 	await get_tree().create_timer(1.0).timeout
 	get_tree().change_scene_to_file("res://scenes/Gameover.tscn")
 
 func next_step():
 	if current_step < steps.size()-1:
 		current_step += 1
+		time = 45.0
 		player.renew_life()
 		label.set_text(str(steps[current_step]))
 	else:
 		gameover(true)
 
-func _on_drowing_area_body_entered(body: CharacterBody2D):
-	if body is Player:
-		drownSound.play(3.0)
-		body.drowing()
-		gameover(false)
+func _on_drowing_area_body_entered(body: Player):
+	#if body is Player:
+	drownSound.play(3.0)
+	body.drowing()
+	gameover(false)
 
-func _on_death_area_body_entered(_body):
+func _on_death_area_body_entered(_body: Player):
 	gameover(false)
 
 func show_dialogue(resource: DialogueResource, title: String = "0", extra_game_states: Array = []) -> void:

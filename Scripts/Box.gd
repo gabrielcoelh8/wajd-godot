@@ -52,15 +52,15 @@ func drop_handle():
 	on_air = false
 	dropping = true
 
-func _on_player_entered(body):
-	if body is Player:
+func _on_player_entered(_body: Player):
+	#if body is Player:
 		#body.toggle_canPick()
-		player_is_inside = true
+	player_is_inside = true
 
-func _on_player_exited(body):
-	if body is Player:
+func _on_player_exited(_body: Player):
+	#if body is Player:
 		#body.toggle_canPick()
-		player_is_inside = false
+	player_is_inside = false
 
 func _on_inside_platform(area):
 	#print(area.is_occupied)
