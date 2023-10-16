@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://by6irb20l6861"
-path="res://.godot/imported/spot.png-6555ace01ea0c4f61b70e2e6be487a1e.ctex"
+path="res://.godot/imported/spot.png-b28030573272017aa6c82eddbc0525ae.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/shader/spot.png"
-dest_files=["res://.godot/imported/spot.png-6555ace01ea0c4f61b70e2e6be487a1e.ctex"]
+source_file="res://Sprites/shader/spot.png"
+dest_files=["res://.godot/imported/spot.png-b28030573272017aa6c82eddbc0525ae.ctex"]
 
 [params]
 

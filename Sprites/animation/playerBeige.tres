@@ -1,9 +1,9 @@
 [gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://6k82lw22eccf"]
 
-[ext_resource type="Texture2D" uid="uid://dtkb2el8qgasp" path="res://sprites/chars/alien.sprites/alienBeige_stand.tres" id="1_uoc7e"]
-[ext_resource type="Texture2D" uid="uid://crn5otvn141sn" path="res://sprites/chars/alien.sprites/alienBeige_swim2.tres" id="2_seqj5"]
-[ext_resource type="Texture2D" uid="uid://hihpi3ocsl5l" path="res://sprites/chars/alien.sprites/alienBeige_walk1.tres" id="3_ffsrg"]
-[ext_resource type="Texture2D" uid="uid://4omrryr2wug4" path="res://sprites/chars/alien.sprites/alienBeige_walk2.tres" id="4_1l02i"]
+[ext_resource type="Texture2D" uid="uid://dtkb2el8qgasp" path="res://Sprites/chars/alien.sprites/alienBeige_stand.tres" id="1_uoc7e"]
+[ext_resource type="Texture2D" uid="uid://crn5otvn141sn" path="res://Sprites/chars/alien.sprites/alienBeige_swim2.tres" id="2_seqj5"]
+[ext_resource type="Texture2D" uid="uid://hihpi3ocsl5l" path="res://Sprites/chars/alien.sprites/alienBeige_walk1.tres" id="3_ffsrg"]
+[ext_resource type="Texture2D" uid="uid://4omrryr2wug4" path="res://Sprites/chars/alien.sprites/alienBeige_walk2.tres" id="4_1l02i"]
 
 [resource]
 animations = [{

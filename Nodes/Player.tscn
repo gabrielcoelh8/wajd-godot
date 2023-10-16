@@ -1,9 +1,9 @@
 [gd_scene load_steps=11 format=3 uid="uid://c0tr5ncyq4dk1"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_ap2tb"]
-[ext_resource type="SpriteFrames" uid="uid://6k82lw22eccf" path="res://sprites/animation/playerBeige.tres" id="2_8dcsu"]
-[ext_resource type="Texture2D" uid="uid://by6irb20l6861" path="res://sprites/shader/spot.png" id="2_igwjr"]
-[ext_resource type="SpriteFrames" uid="uid://ul6po1sxl874" path="res://sprites/animation/hearts.tres" id="4_h53en"]
+[ext_resource type="SpriteFrames" uid="uid://6k82lw22eccf" path="res://Sprites/animation/playerBeige.tres" id="2_8dcsu"]
+[ext_resource type="Texture2D" uid="uid://by6irb20l6861" path="res://Sprites/shader/spot.png" id="2_igwjr"]
+[ext_resource type="SpriteFrames" uid="uid://ul6po1sxl874" path="res://Sprites/animation/hearts.tres" id="4_h53en"]
 [ext_resource type="Script" path="res://scripts/Hearts.gd" id="4_lhydf"]
 [ext_resource type="AudioStream" uid="uid://d3glqy26taq41" path="res://audio/item_equip_sound.mp3" id="6_qrxg1"]
 [ext_resource type="AudioStream" uid="uid://cmkor8frxytei" path="res://audio/key_sound.mp3" id="7_jgdjl"]
@@ -95,5 +95,3 @@ stream = ExtResource("8_wml6d")
 volume_db = -5.622
 pitch_scale = 2.04
 autoplay = true
-
-[connection signal="lose_life" from="." to="hearts" method="_on_player_lose_life"]

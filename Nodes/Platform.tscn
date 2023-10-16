@@ -23,6 +23,7 @@ position = Vector2(0, -59)
 
 [node name="Label" type="Label" parent="."]
 light_mask = 0
+z_index = 5
 offset_left = -28.0
 offset_top = 2.0
 offset_right = 27.0

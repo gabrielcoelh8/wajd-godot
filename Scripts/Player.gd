@@ -30,7 +30,7 @@ signal renew_hearts
 var GRAVITY = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
-	animatedSprite.sprite_frames = load("res://sprites/animation/playerBeige.tres")
+	animatedSprite.sprite_frames = load("res://Sprites/animation/playerBeige.tres")
 	#setar spriteframes (permite mudar os frames do objeto)
 
 func _process(_delta):

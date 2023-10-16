@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c1320lp1opsum"
-path="res://.godot/imported/skill-desc_0001_buildings.png-b496cd16126e504de0d6f2fece48948f.ctex"
+path="res://.godot/imported/skill-desc_0001_buildings.png-db5ac74ea8b7fbc2b2aed6e958436f37.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/parallax/skill-desc_0001_buildings.png"
-dest_files=["res://.godot/imported/skill-desc_0001_buildings.png-b496cd16126e504de0d6f2fece48948f.ctex"]
+source_file="res://Sprites/parallax/skill-desc_0001_buildings.png"
+dest_files=["res://.godot/imported/skill-desc_0001_buildings.png-db5ac74ea8b7fbc2b2aed6e958436f37.ctex"]
 
 [params]
 

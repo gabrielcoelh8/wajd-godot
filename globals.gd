@@ -9,3 +9,4 @@ var last_time
 func set_sort_type(type):
 	sort_type = type
 	print(sort_type)
+

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cww6666pyyxtc"
-path="res://.godot/imported/iceicebaby.png-aaf9931f6194593c31ec8e6cda6658cc.ctex"
+path="res://.godot/imported/iceicebaby.png-1f429e020d19227fb69b10470df142b3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/interface/iceicebaby.png"
-dest_files=["res://.godot/imported/iceicebaby.png-aaf9931f6194593c31ec8e6cda6658cc.ctex"]
+source_file="res://Sprites/interface/iceicebaby.png"
+dest_files=["res://.godot/imported/iceicebaby.png-1f429e020d19227fb69b10470df142b3.ctex"]
 
 [params]
 

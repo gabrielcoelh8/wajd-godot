@@ -1,24 +1,56 @@
 ~ start
+Coco: Tutoriais disponíveis:
+- Regras básicas do jogo
+	Coco: Bem-vindo, me chamo WAJD.
+	Coco: Vou te explicar as regras básicas do jogo... são básicas, eu juro.
+	Coco: Você tem um tempo máximo para ganhar, então tome cuidado.
+	Coco: Mas você está no tutorial, por agora você tem tempo infinito.
+	Coco: Não se acostume com isso.
+	Coco: No modo normal, você tem 45 segundos para completar a fase.
+	Coco: Ao acabar o tempo, você perde.
+	Coco: Mas o tempo reiniciará sempre que você ganhar uma moeda.
+	Coco: Você tem 3 vidas, como pode ver acima de você.
+	Coco: Sempre que levantar ou soltar uma caixa perderá meia-vida.
+	Coco: Ou seja, perde uma vida ao movimentar uma caixa totalmente.
+	Coco: Aperte as SETAS no seu teclado para andar.
+	Coco: Aperte ESPAÇO para levantar uma caixa.
+	Coco: Aperte CTRL para soltar essa caixa.
+	Coco: Só pode soltar caixas em plataformas, no entanto.
+	Coco: Se estiver com dificuldades ou preguiça.
+	Coco: Aperte H para pedir nossa ajuda! 
+	Coco: Mas vai perder 5 segundos de tempo.
+	Coco: Agora a melhor parte... jogue!
+	=> start
+- Aprenda Bubble Sort
+	Coco: Eu não quero te ensinar isso agora.
+	=> start
+- Aprenda Selection Sort
+	Coco: Eu não quero te ensinar isso agora.
+	=> start
+- Aprenda Shaker Sort
+	Coco: Eu não quero te ensinar isso agora.
+	=> start
+- Já sei jogar, não preciso de tutoriais
+	=> choice
+=> END
 
-Coco: Você tem 45 segundos para completar a fase.
-Coco: Sempre que levantar ou soltar uma caixa perderá meia-vida.
-Coco: Pode pedir ajuda apertando "H", mas vai perder 5 segundos de tempo.
-Coco: Agora a melhor parte...
-Coco: Escolha:
+~ choice
+
+Coco: Escolha um tipo de algoritmo de ordenação:
 - Bubble sort
 	do set_sort_type("bubble_sort")
 - Selection sort
 	do set_sort_type("selection_sort")
 - Shaker sort
 	do set_sort_type("shaker_sort")
-- Não sei => start
-	[[Você é indeciso?||Eu também não saberia escolher.]]
+- Eu não sei jogar (tutoriais)
+	=> start
 Coco: Boa sorte!
 
 => END
 
 ~ help
 
-Nathan: Você perdeu 5 segundos por pedir ajuda...
+Nathan: Você perdeu 5 segundos por pedir ajuda
 
 => END

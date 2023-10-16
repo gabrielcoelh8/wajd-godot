@@ -9,7 +9,7 @@ signal time_end
 @onready var timerSound = $TimerSound
 @onready var drownSound = $DrownSound
 @onready var coinSound = $CoinSound
-@onready var coinLabel = $CoinControl/StepLabel
+@onready var coinLabel = $CoinControl/GridContainer/MarginContainer/StepLabel
 
 var numbers = []
 var steps = []
@@ -34,7 +34,7 @@ func _ready():
 	player.no_lifes.connect(no_lifes_handle)
 	time_end.connect(end_time_handle)
 	
-	show_dialogue(load("res://dialogue/main.dialogue"), "start")
+	show_dialogue(load("res://dialogue/main.dialogue"), "choice")
 	await DialogueManager.dialogue_ended
 	sort_type = Globals.sort_type
 	get_tree().paused = false
