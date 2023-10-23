@@ -1,10 +1,9 @@
 extends Node2D
-@onready var label = $Label
 @onready var result = $Result
 @onready var coinLabel = $CoinControl/StepLabel
 
 func _ready():
-	var time = snapped(Globals.last_final_time, 0.01)
+	#var time = snapped(Globals.last_final_time, 0.01)
 	var result_text : String
 	var coins = Globals.last_coins
 	
@@ -15,7 +14,6 @@ func _ready():
 	else: 
 		result_text = "Derrota"
 		
-	label.set_text("Tempo de execução: "+ str(time) + " segundos.")
 	result.set_text("[shake rate=5 level=10]" + result_text +"[/shake]")
 
 func _on_continuar_pressed():

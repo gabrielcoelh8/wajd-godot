@@ -1,12 +1,11 @@
 ~ start
+
 Coco: Tutoriais disponíveis:
+- Conceitos de programação
+	=>< conceitos_basicos
 - Regras básicas do jogo
-	Coco: Bem-vindo, me chamo WAJD.
-	Coco: Vou te explicar as regras básicas do jogo... são básicas, eu juro.
 	Coco: Você tem um tempo máximo para ganhar, então tome cuidado.
-	Coco: Mas você está no tutorial, por agora você tem tempo infinito.
-	Coco: Não se acostume com isso.
-	Coco: No modo normal, você tem 45 segundos para completar a fase.
+	Coco: Você tem 45 segundos para cada loop do jogo.
 	Coco: Ao acabar o tempo, você perde.
 	Coco: Mas o tempo reiniciará sempre que você ganhar uma moeda.
 	Coco: Você tem 3 vidas, como pode ver acima de você.
@@ -19,7 +18,6 @@ Coco: Tutoriais disponíveis:
 	Coco: Se estiver com dificuldades ou preguiça.
 	Coco: Aperte H para pedir nossa ajuda! 
 	Coco: Mas vai perder 5 segundos de tempo.
-	Coco: Agora a melhor parte... jogue!
 	=> start
 - Aprenda Bubble Sort
 	Coco: Eu não quero te ensinar isso agora.
@@ -30,7 +28,7 @@ Coco: Tutoriais disponíveis:
 - Aprenda Shaker Sort
 	Coco: Eu não quero te ensinar isso agora.
 	=> start
-- Já sei jogar, não preciso de tutoriais
+- [JOGAR]
 	=> choice
 => END
 
@@ -43,7 +41,7 @@ Coco: Escolha um tipo de algoritmo de ordenação:
 	do set_sort_type("selection_sort")
 - Shaker sort
 	do set_sort_type("shaker_sort")
-- Eu não sei jogar (tutoriais)
+- [APRENDER]
 	=> start
 Coco: Boa sorte!
 
@@ -54,3 +52,22 @@ Coco: Boa sorte!
 Nathan: Você perdeu 5 segundos por pedir ajuda
 
 => END
+
+~ conceitos_basicos
+
+Coco: Sobre o que você quer aprender primeiro?
+- Váriavel
+	Coco: Cada plataforma é um espaço onde você pode despejar uma caixa. Cada caixa tem um número nela. 
+	Coco: Na programação, um dos conceitos mais básicos é sobre váriaveis. Uma váriavel é usada para guardar valores.
+	Coco: Agora associando as duas coisas, cada plataforma nesse jogo é uma váriavel e cada caixa com um número que entra dentro dela é um valor do tipo inteiro. 
+	Coco: Existem vários tipos de valores na programação, quando se quer armazenar um número entre −2.147.483.648 e 2.147.483.647, você usa uma váriavel do tipo 'inteiro'.
+	Coco: Mas no nosso jogo vamos usar só números entre 1 e 5, não se preocupe.
+	Coco: Simples?
+	=> conceitos_basicos
+- Loop
+	Coco: Agora imagine que você tenha que criar 5 plataformas e colocar números de 1 a 5 dentro delas, como você faria isso?
+	Coco: Criaria a primeira e colocaria o número 1 dentro dela, depois criaria a segunda e colocaria o número 2 dentro dela, e depois... e depois... e depois...
+	Coco: Percebe como isso parece repetitivo?
+	=> conceitos_basicos
+- [Voltar]
+	=> start

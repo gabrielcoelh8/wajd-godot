@@ -9,7 +9,7 @@ signal time_end
 @onready var timerSound = $TimerSound
 @onready var drownSound = $DrownSound
 @onready var coinSound = $CoinSound
-@onready var coinLabel = $CoinControl/GridContainer/MarginContainer/StepLabel
+@onready var coinLabel = $CoinControl/HBoxContainer/StepLabel
 
 var numbers = []
 var steps = []

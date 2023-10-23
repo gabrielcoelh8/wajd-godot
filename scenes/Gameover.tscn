@@ -346,9 +346,9 @@ pattern_3 = SubResource("TileMapPattern_ifvif")
 shader = ExtResource("3_c5bue")
 shader_parameter/crt_curve = 0.0
 shader_parameter/crt_scan_line_color = 0.0
-shader_parameter/aperture_grille_rate = 0.0
+shader_parameter/aperture_grille_rate = 1.0
 shader_parameter/rf_switch_esque_blur = 0.0
-shader_parameter/white_noise_rate = 0.034
+shader_parameter/white_noise_rate = 0.113
 
 [node name="Gameover" type="Node2D"]
 script = ExtResource("1_wfn01")
@@ -374,6 +374,31 @@ layer_2/y_sort_enabled = false
 layer_2/y_sort_origin = 0
 layer_2/z_index = 0
 layer_2/tile_data = PackedInt32Array(786457, 786433, 3, 786458, 851969, 3, 786459, 917505, 3, 720922, 851969, 2, 720923, 917505, 2, 655386, 720897, 2, 655387, 786433, 2, 786460, 458753, 2, 589851, 917505, 0, 720924, 983041, 0, 851993, 393217, 1, 917529, 458753, 1, 983065, 458753, 1, 1048601, 458753, 1, 1114137, 458753, 1, 1179673, 458753, 1, 1245209, 458753, 1, 1310745, 458753, 1, 851996, 393217, 1, 917532, 458753, 1, 983068, 458753, 1, 1048604, 458753, 1, 1114140, 458753, 1, 1179676, 458753, 1, 1245212, 458753, 1, 1310748, 458753, 1, 458759, 851969, 1, 458757, 786433, 1, 524295, 393217, 1, 589831, 458753, 1, 655367, 458753, 1, 524293, 393217, 1, 589829, 458753, 1, 655365, 458753, 1, 720901, 458753, 1, 786437, 458753, 1, 851973, 458753, 1, 917509, 458753, 1, 1114117, 458753, 1, 1048581, 458753, 1, 983045, 458753, 1, 720903, 458753, 1, 786439, 458753, 1, 851975, 458753, 1, 917511, 458753, 1, 983047, 458753, 1, 1048583, 458753, 1, 1114119, 458753, 1, 1179655, 458753, 1, 1245191, 458753, 1, 1310727, 458753, 1, 1310725, 458753, 1, 1245189, 458753, 1, 1179653, 458753, 1, 458758, 786433, 1, 393222, 983041, 0, 393221, 983041, 0, 393223, 983041, 0, 589850, 983041, 0)
+
+[node name="CoinControl" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 168.0
+offset_top = 144.0
+offset_right = 326.0
+offset_bottom = 231.0
+
+[node name="StepLabel" type="RichTextLabel" parent="CoinControl"]
+texture_filter = 5
+layout_mode = 0
+offset_left = 47.0
+offset_top = 12.0
+offset_right = 74.0
+offset_bottom = 41.0
+theme_override_font_sizes/normal_font_size = 20
+text = "0"
+fit_content = true
+
+[node name="CoinSprite" type="Sprite2D" parent="CoinControl"]
+texture_filter = 5
+position = Vector2(30, 26)
+scale = Vector2(0.707143, 0.716327)
+texture = ExtResource("4_nxhcg")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_d6mu7")
@@ -432,40 +457,6 @@ bbcode_enabled = true
 text = "VITÓRIA"
 fit_content = true
 
-[node name="Label" type="RichTextLabel" parent="."]
-visible = false
-offset_left = 820.0
-offset_top = 304.0
-offset_right = 1172.0
-offset_bottom = 336.0
-text = "final time"
-fit_content = true
-
-[node name="CoinControl" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 168.0
-offset_top = 144.0
-offset_right = 326.0
-offset_bottom = 231.0
-
-[node name="StepLabel" type="RichTextLabel" parent="CoinControl"]
-texture_filter = 5
-layout_mode = 0
-offset_left = 47.0
-offset_top = 12.0
-offset_right = 74.0
-offset_bottom = 41.0
-theme_override_font_sizes/normal_font_size = 20
-text = "0"
-fit_content = true
-
-[node name="CoinSprite" type="Sprite2D" parent="CoinControl"]
-texture_filter = 5
-position = Vector2(30, 26)
-scale = Vector2(0.707143, 0.716327)
-texture = ExtResource("4_nxhcg")
-
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="."]
 volume_db = -0.48
 autoplay = true
@@ -480,7 +471,8 @@ shadow_filter = 2
 shadow_filter_smooth = 4.2
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.709804, 0.717647, 0.941176, 1)
+z_as_relative = false
+color = Color(0.921569, 0.968627, 0.964706, 1)
 
 [connection signal="pressed" from="VBoxContainer/Continuar" to="." method="_on_continuar_pressed"]
 [connection signal="pressed" from="VBoxContainer/Tutorial" to="." method="_on_tutorial_pressed"]

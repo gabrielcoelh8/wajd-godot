@@ -9,7 +9,7 @@
 shader = ExtResource("2_ts0de")
 shader_parameter/crt_curve = 0.0
 shader_parameter/crt_scan_line_color = 0.0
-shader_parameter/aperture_grille_rate = 0.0
+shader_parameter/aperture_grille_rate = 1.0
 shader_parameter/rf_switch_esque_blur = 0.0
 shader_parameter/white_noise_rate = 0.0
 
@@ -17,7 +17,6 @@ shader_parameter/white_noise_rate = 0.0
 script = ExtResource("1_8yjgx")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.709804, 0.717647, 0.941176, 1)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 324)
@@ -26,7 +25,7 @@ position = Vector2(576, 324)
 position = Vector2(72, 32)
 skew = -0.539307
 color = Color(1, 1, 1, 0.258824)
-energy = 0.85
+energy = 1.15
 shadow_enabled = true
 shadow_filter = 2
 shadow_filter_smooth = 4.2
