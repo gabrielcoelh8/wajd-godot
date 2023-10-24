@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://caufmercuf1c2"]
 
 [ext_resource type="Script" path="res://scripts/Menu.gd" id="1_8yjgx"]
+[ext_resource type="AudioStream" uid="uid://b8v3ongu05si8" path="res://audio/sinnesloschen_beam.mp3" id="2_6o3dn"]
 [ext_resource type="Shader" path="res://Sprites/shader/vhs.gdshader" id="2_ts0de"]
 [ext_resource type="PackedScene" uid="uid://crbltlab6mxvu" path="res://Nodes/Menu_tile.tscn" id="3_lva2d"]
-[ext_resource type="AudioStream" uid="uid://brsk02ymltli" path="res://audio/cave.mp3" id="3_mwqp5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yx4yq"]
 shader = ExtResource("2_ts0de")
@@ -31,8 +31,8 @@ shadow_filter = 2
 shadow_filter_smooth = 4.2
 
 [node name="CaveSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_mwqp5")
-volume_db = 14.857
+stream = ExtResource("2_6o3dn")
+volume_db = 5.943
 autoplay = true
 
 [node name="TileMap2" parent="." instance=ExtResource("3_lva2d")]

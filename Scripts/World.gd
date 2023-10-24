@@ -66,7 +66,7 @@ func _process(delta):
 	timerLabel.set_text(str(snapped(time, 0.01)))
 
 func _unhandled_input(_event):
-	if Input.is_action_just_pressed("ui_help"):
+	if Input.is_action_just_pressed("ui_help") and label.visible == false:
 		time -= punished_time
 		show_dialogue(load("res://dialogue/main.dialogue"), "help")
 		label.visible = true

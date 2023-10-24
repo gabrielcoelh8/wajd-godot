@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://c3cnuo6fb5ifc"]
+[gd_scene load_steps=29 format=3 uid="uid://c3cnuo6fb5ifc"]
 
 [ext_resource type="Script" path="res://scripts/World.gd" id="1_m0jhp"]
 [ext_resource type="PackedScene" uid="uid://cpakfslut0sdy" path="res://Nodes/Tilemap.tscn" id="2_xrscc"]
@@ -7,13 +7,14 @@
 [ext_resource type="PackedScene" uid="uid://46m8i6xoqsmn" path="res://Nodes/box.tscn" id="5_sh0ku"]
 [ext_resource type="PackedScene" uid="uid://d4ejmido4py1o" path="res://Nodes/Platform.tscn" id="6_5bis8"]
 [ext_resource type="Texture2D" uid="uid://by6irb20l6861" path="res://Sprites/shader/spot.png" id="7_8dwgq"]
-[ext_resource type="AudioStream" uid="uid://djjrbikoksdqg" path="res://audio/ambience_sound.mp3" id="7_q1efw"]
 [ext_resource type="AudioStream" uid="uid://hweetbesj2gt" path="res://audio/timer_sound.mp3" id="8_rxsyf"]
+[ext_resource type="AudioStream" uid="uid://dydi65f0n36js" path="res://audio/kopy-kat.mp3" id="9_j08qx"]
 [ext_resource type="AudioStream" uid="uid://ujgbg6mqlxpk" path="res://audio/underwater_sound.mp3" id="9_pkyao"]
 [ext_resource type="Texture2D" uid="uid://cjusktpbf7k8p" path="res://Sprites/interface/coinGold.png" id="10_4rxss"]
 [ext_resource type="AudioStream" uid="uid://c81dchuvfk6ge" path="res://audio/coin_sound.mp3" id="10_c4rpk"]
 [ext_resource type="Shader" path="res://Sprites/shader/vhs.gdshader" id="12_rvbnn"]
 [ext_resource type="Texture2D" uid="uid://bq1j56cxa4en2" path="res://Sprites/interface/Keyboard Extras.png" id="13_k2yo7"]
+[ext_resource type="Texture2D" uid="uid://dbv5po8e15jdo" path="res://Sprites/interface/Keyboard Letters and Symbols.png" id="14_tq1nx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_piajb"]
 texture = ExtResource("3_y3wuv")
@@ -274,6 +275,14 @@ font_size = 11
 atlas = ExtResource("13_k2yo7")
 region = Rect2(4, 34, 24, 12)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_pg28n"]
+atlas = ExtResource("14_tq1nx")
+region = Rect2(113, 34, 13, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ciebt"]
+atlas = ExtResource("14_tq1nx")
+region = Rect2(17, 50, 13, 12)
+
 [sub_resource type="Animation" id="Animation_86bym"]
 resource_name = "new_animation"
 
@@ -443,6 +452,7 @@ offset_left = 1069.0
 offset_top = 7.0
 offset_right = 1155.0
 offset_bottom = 36.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
 bbcode_enabled = true
 text = "timer"
 
@@ -481,10 +491,13 @@ shape = SubResource("RectangleShape2D_ve5kq")
 debug_color = Color(0.913725, 0, 0.713726, 0.419608)
 
 [node name="TimerSound" type="AudioStreamPlayer" parent="."]
+process_mode = 1
 stream = ExtResource("8_rxsyf")
+volume_db = -10.306
 
 [node name="AmbienceAudio" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_q1efw")
+stream = ExtResource("9_j08qx")
+volume_db = -15.928
 autoplay = true
 
 [node name="DrownSound" type="AudioStreamPlayer2D" parent="."]
@@ -527,20 +540,21 @@ autowrap_mode = 0
 z_index = 6
 layout_mode = 3
 anchors_preset = 0
-offset_left = 15.0
-offset_top = 580.0
-offset_right = 171.0
-offset_bottom = 734.0
+offset_left = 12.0
+offset_top = 531.0
+offset_right = 168.0
+offset_bottom = 685.0
+scale = Vector2(1.11912, 1.09403)
 
 [node name="GridContainer" type="GridContainer" parent="Tutorial"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 4.0
-offset_bottom = 288.0
+offset_left = 5.0
+offset_top = 23.0
+offset_right = 5.0
+offset_bottom = 307.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -591,6 +605,56 @@ theme_override_constants/margin_right = 3
 layout_mode = 2
 theme_override_font_sizes/font_size = 11
 text = "SOLTAR CAIXA"
+label_settings = SubResource("LabelSettings_h1ylw")
+horizontal_alignment = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Tutorial/GridContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Tutorial/GridContainer/HBoxContainer3"]
+texture_filter = 5
+layout_mode = 2
+texture = SubResource("AtlasTexture_pg28n")
+expand_mode = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="Tutorial/GridContainer/HBoxContainer3"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Tutorial/GridContainer/HBoxContainer3/PanelContainer"]
+texture_filter = 5
+layout_mode = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_right = 3
+
+[node name="Label" type="Label" parent="Tutorial/GridContainer/HBoxContainer3/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "AJUDA"
+label_settings = SubResource("LabelSettings_h1ylw")
+horizontal_alignment = 1
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Tutorial/GridContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Tutorial/GridContainer/HBoxContainer4"]
+texture_filter = 5
+layout_mode = 2
+texture = SubResource("AtlasTexture_ciebt")
+expand_mode = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="Tutorial/GridContainer/HBoxContainer4"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Tutorial/GridContainer/HBoxContainer4/PanelContainer"]
+texture_filter = 5
+layout_mode = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_right = 3
+
+[node name="Label" type="Label" parent="Tutorial/GridContainer/HBoxContainer4/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "MODO INICIANTE"
 label_settings = SubResource("LabelSettings_h1ylw")
 horizontal_alignment = 1
 
