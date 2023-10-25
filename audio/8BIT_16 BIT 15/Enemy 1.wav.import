@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://deg3gfi7n42xw"
+path="res://.godot/imported/Enemy 1.wav-d665448b1a7dc5628c468709d22fde98.sample"
+
+[deps]
+
+source_file="res://audio/8BIT_16 BIT 15/Enemy 1.wav"
+dest_files=["res://.godot/imported/Enemy 1.wav-d665448b1a7dc5628c468709d22fde98.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

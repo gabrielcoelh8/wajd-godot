@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cfaw52o1llkxp"
+path="res://.godot/imported/laser_002.wav-3184ada8da65ccd6c3452d589f58e77e.sample"
+
+[deps]
+
+source_file="res://audio/SFX Free/Laser/laser_002.wav"
+dest_files=["res://.godot/imported/laser_002.wav-3184ada8da65ccd6c3452d589f58e77e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

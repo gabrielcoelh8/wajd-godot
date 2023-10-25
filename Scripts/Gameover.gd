@@ -10,9 +10,9 @@ func _ready():
 	coinLabel.set_text(str(coins))
 	
 	if Globals.win_verify:
-		result_text = "Vitória" 
+		result_text = "[center]Vitória[/center]" 
 	else: 
-		result_text = "Derrota"
+		result_text = "[center]Derrota[/center]"
 		
 	result.set_text("[shake rate=5 level=10]" + result_text +"[/shake]")
 

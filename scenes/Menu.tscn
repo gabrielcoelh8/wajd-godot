@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://caufmercuf1c2"]
+[gd_scene load_steps=7 format=3 uid="uid://caufmercuf1c2"]
 
 [ext_resource type="Script" path="res://scripts/Menu.gd" id="1_8yjgx"]
 [ext_resource type="AudioStream" uid="uid://b8v3ongu05si8" path="res://audio/sinnesloschen_beam.mp3" id="2_6o3dn"]
 [ext_resource type="Shader" path="res://Sprites/shader/vhs.gdshader" id="2_ts0de"]
 [ext_resource type="PackedScene" uid="uid://crbltlab6mxvu" path="res://Nodes/Menu_tile.tscn" id="3_lva2d"]
+[ext_resource type="FontFile" uid="uid://lm5og608fmr4" path="res://Sprites/interface/ProggyClean.ttf" id="5_c4u7u"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yx4yq"]
 shader = ExtResource("2_ts0de")
@@ -83,6 +84,26 @@ text = "Normal"
 [node name="Sair" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
 text = "Sair"
+
+[node name="Label" type="RichTextLabel" parent="."]
+light_mask = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 446.0
+offset_top = 243.0
+offset_right = 710.0
+offset_bottom = 292.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/normal_font = ExtResource("5_c4u7u")
+theme_override_font_sizes/normal_font_size = 59
+bbcode_enabled = true
+text = "[center][shake rate=5 level=10]WAJD"
+fit_content = true
 
 [connection signal="pressed" from="Control/VBoxContainer/Tutorial" to="." method="_on_tutorial_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/Normal" to="." method="_on_normal_pressed"]

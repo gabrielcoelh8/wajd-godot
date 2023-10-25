@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bdfo55nuy765t"
+path="res://.godot/imported/menu_005.wav-7e13530b549956b967e32e5446eef764.sample"
+
+[deps]
+
+source_file="res://audio/SFX Free/menu/menu_005.wav"
+dest_files=["res://.godot/imported/menu_005.wav-7e13530b549956b967e32e5446eef764.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

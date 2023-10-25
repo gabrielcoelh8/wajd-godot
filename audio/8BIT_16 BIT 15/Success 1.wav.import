@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://db0v34er35ghe"
+path="res://.godot/imported/Success 1.wav-9176c7e56e81f618d872da3486f4fa22.sample"
+
+[deps]
+
+source_file="res://audio/8BIT_16 BIT 15/Success 1.wav"
+dest_files=["res://.godot/imported/Success 1.wav-9176c7e56e81f618d872da3486f4fa22.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

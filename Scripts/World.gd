@@ -1,21 +1,30 @@
 extends Node2D
 signal time_end
+signal lucky
 
 @onready var player = $Player
 @onready var boxes_nodes = get_tree().get_nodes_in_group("boxes")
 @onready var platforms_nodes = get_tree().get_nodes_in_group("Platform")
-@onready var label = $Help
+@onready var helpLabel = $Help
 @onready var timerLabel = $TimerLabel
 @onready var timerSound = $TimerSound
 @onready var drownSound = $DrownSound
 @onready var coinSound = $CoinSound
+@onready var sucessSound = $SucessAudio
 @onready var coinLabel = $CoinControl/HBoxContainer/StepLabel
+@onready var waterShader = $WaterShader
+@onready var animPlayer = $AnimationPlayer
 
 var numbers = []
+#testes
+var test_bestcase = [1, 2, 3, 4, 5]
+var test_worsecase = [5, 4, 3, 2, 1]
+#######
 var steps = []
 var current_step = 0
 var used_numbers : Array = []
-var time = 45.0
+var default_time = 60
+var time = default_time
 var punished_time = 5.0
 var coins = 0
 var final_time
@@ -33,6 +42,7 @@ func _ready():
 	#signal
 	player.no_lifes.connect(no_lifes_handle)
 	time_end.connect(end_time_handle)
+	lucky.connect(lucky_handler)
 	
 	show_dialogue(load("res://dialogue/main.dialogue"), "choice")
 	await DialogueManager.dialogue_ended
@@ -48,11 +58,13 @@ func _ready():
 		"shaker_sort":
 			shaker_sort(numbers)
 	
-	timerLabel.visible = true
-	timerSound.play()
-	next_step()
-	
-	label.set_text(str(steps[current_step]))
+	if(steps.size() <= 2):
+		lucky.emit()
+	else:
+		next_step()
+		timerLabel.visible = true
+		timerSound.play()
+		helpLabel.set_text(str(steps[current_step]))
 
 func _process(delta):
 	if(not get_tree().paused) and time > 0:
@@ -66,12 +78,12 @@ func _process(delta):
 	timerLabel.set_text(str(snapped(time, 0.01)))
 
 func _unhandled_input(_event):
-	if Input.is_action_just_pressed("ui_help") and label.visible == false:
+	if Input.is_action_just_pressed("ui_help") and helpLabel.visible == false:
 		time -= punished_time
 		show_dialogue(load("res://dialogue/main.dialogue"), "help")
-		label.visible = true
+		helpLabel.visible = true
 		await get_tree().create_timer(10.0).timeout
-		label.visible = false
+		helpLabel.visible = false
 	if Input.is_action_just_pressed("ui_pause"):
 		get_tree().paused = not get_tree().paused
 	if Input.is_action_just_pressed("ui_restart"):
@@ -210,20 +222,37 @@ func gameover(win_verify):
 func next_step():
 	if current_step < steps.size()-1:
 		current_step += 1
-		time = 45.0
+		time = default_time
 		player.renew_life()
-		label.set_text(str(steps[current_step]))
+		helpLabel.set_text(str(steps[current_step]))
 	else:
 		gameover(true)
 
 func _on_drowing_area_body_entered(body: Player):
 	#if body is Player:
 	drownSound.play(3.0)
+	animPlayer.play("death_anim")
+	waterShader.visible = true
 	body.drowing()
+	await get_tree().create_timer(1.0).timeout
 	gameover(false)
 
 func _on_death_area_body_entered(_body: Player):
 	gameover(false)
+
+func lucky_handler():
+	get_tree().paused = true
+	sucessSound.play()
+	show_dialogue(load("res://dialogue/main.dialogue"), "lucky")
+	await DialogueManager.dialogue_ended
+	coinSound.play()
+	coins = 10
+	Globals.win_verify = true
+	Globals.last_final_time = 0.00
+	Globals.last_coins = coins
+	await get_tree().create_timer(1.0).timeout
+	get_tree().change_scene_to_file("res://scenes/Gameover.tscn")
+	get_tree().paused = false
 
 func show_dialogue(resource: DialogueResource, title: String = "0", extra_game_states: Array = []) -> void:
 	var ExampleBalloonScene = load("res://dialogue/visual_novel_balloon/visual_novel_balloon.tscn")

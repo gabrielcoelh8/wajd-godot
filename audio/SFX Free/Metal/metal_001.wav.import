@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://m7ly1116jr0v"
+path="res://.godot/imported/metal_001.wav-b04a00e54c1e133cb1cce674b26c2638.sample"
+
+[deps]
+
+source_file="res://audio/SFX Free/Metal/metal_001.wav"
+dest_files=["res://.godot/imported/metal_001.wav-b04a00e54c1e133cb1cce674b26c2638.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

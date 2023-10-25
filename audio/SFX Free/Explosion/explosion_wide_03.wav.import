@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://hc8mc0xgy7p2"
+path="res://.godot/imported/explosion_wide_03.wav-fccdf66e8c9c84b723938247c5ded7e7.sample"
+
+[deps]
+
+source_file="res://audio/SFX Free/Explosion/explosion_wide_03.wav"
+dest_files=["res://.godot/imported/explosion_wide_03.wav-fccdf66e8c9c84b723938247c5ded7e7.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

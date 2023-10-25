@@ -1,7 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://cxae2nu1rsyeo"]
+[gd_scene load_steps=8 format=3 uid="uid://cxae2nu1rsyeo"]
 
 [ext_resource type="Script" path="res://dialogue/visual_novel_balloon/balloon.gd" id="1_5w8hw"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="1_ebrfe"]
+[ext_resource type="Texture2D" uid="uid://bq1j56cxa4en2" path="res://Sprites/interface/Keyboard Extras.png" id="2_o42s1"]
+[ext_resource type="FontFile" uid="uid://lm5og608fmr4" path="res://Sprites/interface/ProggyClean.ttf" id="4_eyitp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6kf6f"]
+atlas = ExtResource("2_o42s1")
+region = Rect2(65, 99, 30, 11)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sr5y7"]
 content_margin_left = 20.0
@@ -80,15 +86,37 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
-color = Color(0, 0, 0, 0.862745)
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="Balloon"]
+modulate = Color(1, 1, 1, 0.513726)
+texture_filter = 5
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -121.0
+offset_top = -55.0
+offset_right = -11.9092
+offset_bottom = -15.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.729887, 0.731537)
+texture = SubResource("AtlasTexture_6kf6f")
+expand_mode = 3
 
 [node name="Margin" type="MarginContainer" parent="Balloon"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.0001, 0.998675)
 theme_override_constants/margin_left = 40
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 40
@@ -96,6 +124,8 @@ theme_override_constants/margin_bottom = 20
 
 [node name="DialogueLabel" parent="Balloon/Margin" instance=ExtResource("1_ebrfe")]
 layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_eyitp")
+theme_override_font_sizes/normal_font_size = 22
 
 [node name="Responses" type="VBoxContainer" parent="."]
 anchors_preset = -1
@@ -115,6 +145,7 @@ offset_top = 694.0
 offset_right = 399.0
 offset_bottom = 740.0
 mouse_default_cursor_shape = 2
+theme_override_fonts/normal_font = ExtResource("4_eyitp")
 theme_override_styles/focus = SubResource("StyleBoxFlat_sr5y7")
 theme_override_styles/normal = SubResource("StyleBoxFlat_ma11q")
 text = "Response template"

@@ -1,9 +1,12 @@
-[gd_scene load_steps=21 format=3 uid="uid://bksqku17a3g8y"]
+[gd_scene load_steps=24 format=3 uid="uid://bksqku17a3g8y"]
 
 [ext_resource type="Script" path="res://scripts/Gameover.gd" id="1_wfn01"]
 [ext_resource type="Texture2D" uid="uid://dhix64txjl7gd" path="res://Sprites/tilemaps/platformer_tiles.png" id="3_ba4jy"]
 [ext_resource type="Shader" path="res://Sprites/shader/vhs.gdshader" id="3_c5bue"]
 [ext_resource type="Texture2D" uid="uid://cjusktpbf7k8p" path="res://Sprites/interface/coinGold.png" id="4_nxhcg"]
+[ext_resource type="FontFile" uid="uid://lm5og608fmr4" path="res://Sprites/interface/ProggyClean.ttf" id="5_3q85n"]
+[ext_resource type="AudioStream" uid="uid://ddjtyyg2x5ijt" path="res://audio/white-noise.mp3" id="5_v1lur"]
+[ext_resource type="AudioStream" uid="uid://b8v3ongu05si8" path="res://audio/sinnesloschen_beam.mp3" id="6_53l5i"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_svxvk"]
 tile_data = PackedInt32Array(0, 720897, 2, 65536, 851969, 2, 131072, 458753, 2, 1, 786433, 2, 65537, 917505, 2, 131073, 458753, 2)
@@ -445,20 +448,22 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 472.0
-offset_top = 232.0
-offset_right = 736.0
-offset_bottom = 314.0
+offset_left = 454.0
+offset_top = 267.0
+offset_right = 718.0
+offset_bottom = 316.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
+theme_override_fonts/normal_font = ExtResource("5_3q85n")
 theme_override_font_sizes/normal_font_size = 59
 bbcode_enabled = true
-text = "VITÓRIA"
+text = "[center]VITÓRIA"
 fit_content = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="."]
-volume_db = -0.48
+stream = ExtResource("5_v1lur")
+volume_db = -20.156
 autoplay = true
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
@@ -473,6 +478,12 @@ shadow_filter_smooth = 4.2
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 z_as_relative = false
 color = Color(0.921569, 0.968627, 0.964706, 1)
+
+[node name="CaveSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_53l5i")
+volume_db = -2.574
+pitch_scale = 0.67
+autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/Continuar" to="." method="_on_continuar_pressed"]
 [connection signal="pressed" from="VBoxContainer/Tutorial" to="." method="_on_tutorial_pressed"]

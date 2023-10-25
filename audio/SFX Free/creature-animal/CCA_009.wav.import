@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b2xskdnyfo7k8"
+path="res://.godot/imported/CCA_009.wav-630ebc6e3ca708c6800b92cb70e38ae3.sample"
+
+[deps]
+
+source_file="res://audio/SFX Free/creature-animal/CCA_009.wav"
+dest_files=["res://.godot/imported/CCA_009.wav-630ebc6e3ca708c6800b92cb70e38ae3.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

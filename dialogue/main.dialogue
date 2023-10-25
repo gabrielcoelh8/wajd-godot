@@ -1,28 +1,28 @@
 ~ start
 
 Coco: Tutoriais disponíveis:
-- Conceitos de programação
+- ☆ Conceitos de programação
 	=> conceitos_basicos
-- Como jogar
+- ☆ Como jogar
 	=> regras
-- Aprenda Bubble Sort
-	Coco: Repare bem no número da caixa no *vetor[0]*
-	Coco: Agora no número da caixa vizinha da direita, ou seja, no *vetor[1]*
+- ☆ Aprenda Bubble Sort
+	Coco: Repare bem no número da caixa no ☆vetor[0]☆
+	Coco: Agora no número da caixa vizinha da direita, ou seja, no ☆vetor[1]☆
 	Coco: Qual número é maior?
-	Coco: Caso o número do *vetor[0]* seja maior que o número do *vetor[1]*, alterne as duas de lugar entre si, colocando uma no lugar da outra, basicamente.
-	Coco: Você vai precisar usar a *var temp* para te ajudar nisso, já que não pode colocar mais de uma caixa na mesma PLATAFORMA.
-	Coco: Se o número no *vetor[1]* for maior você não precisa fazer nada.
+	Coco: Caso o número do ☆vetor[0]☆ seja maior que o número do ☆vetor[1]☆, alterne as duas de lugar entre si, colocando uma no lugar da outra, basicamente.
+	Coco: Você vai precisar usar a ☆var temp☆ para te ajudar nisso, já que não pode colocar mais de uma caixa na mesma PLATAFORMA.
+	Coco: Se o número no ☆vetor[1]☆ for maior você não precisa fazer nada.
 	Coco: Estamos tentando organizar as caixas em ordem crescente, não faria sentido trocar, pense bem.
-	Coco: Agora compare a caixa no *vetor[1]* com a caixa no *vetor[2]*.
-	Coco: E depois o *vetor[3]* com o *vetor[4]*.
+	Coco: Agora compare a caixa no ☆vetor[1]☆ com a caixa no ☆vetor[2]☆.
+	Coco: E depois o ☆vetor[3]☆ com o ☆vetor[4]☆, sempre comparando de duas em duas.
 	Coco: Quando chegar no final e não estiver organizado ainda, volte a comparar as duas primeiras caixas novamente.
-	Coco: E assim por diante até tudo ficar organizado.
+	Coco: E assim por diante até tudo ficar organizado e você ganhar!!!
 	Coco: Trabalhoso, não? Sorte que não são 1 milhão de plataformas.
 	=> start
-- Aprenda Selection Sort
+- ☆ Aprenda Selection Sort
 	Coco: Eu não quero te ensinar isso agora.
 	=> start
-- Aprenda Shaker Sort
+- ☆ Aprenda Shaker Sort
 	Coco: Eu não quero te ensinar isso agora.
 	=> start
 - [JOGAR]
@@ -40,7 +40,7 @@ Coco: Escolha uma fase:
 	do set_sort_type("selection_sort")
 - [APRENDER]
 	=> start
-Coco: Boa sorte!
+Coco: GLHF!!!
 
 => END
 
@@ -50,23 +50,40 @@ Nathan: Você perdeu 5 segundos...[next=true]
 
 => END
 
+~ lucky
+
+Nathan: ☆ Você tem muita sorte ☆
+
+=> END
+
 ~ conceitos_basicos
 
 Coco: Sobre o que você quer aprender primeiro?
-- Váriavel
+- ☆ Váriavel
 	Coco: Cada plataforma é um espaço onde você pode despejar uma caixa. Cada caixa tem um número nela. 
 	Coco: Na programação, uma váriavel é usada para guardar valores. 
-	Coco: Agora associando as duas coisas, cada plataforma nesse jogo é uma [váriavel] e cada caixa com um número que entra dentro dela é um valor do tipo [inteiro]. 
-	Coco: Uma váriavel do tipo [inteiro] pode armazenar um número entre −2.147.483.648 e 2.147.483.647... 
-	Coco: Mas no nosso jogo vamos usar só números entre 1 e 5, ok?
+	Coco: Agora associando as duas coisas, cada plataforma nesse jogo é uma ☆váriavel☆ e cada caixa com um número que ficar encima dela tem um valor do tipo ☆inteiro☆. 
+	Coco: Enfim, uma váriavel do tipo ☆inteiro☆ pode armazenar um número entre −2.147.483.648 e 2.147.483.647...
+	Coco: Computadores são limitados, não podemos armazenar números muito grandes ou infinitos...
+	Coco: Mas no nosso jogo vamos usar só números entre 1 e 5, ok? Não se assuste...
+	Coco: Agora, temos várias plataformas, certo?
+	Coco: Todas elas tem algo em comum que é guardar um número inteiro apenas, logo são homogêneas. Não vai ter uma plataforma que guarda caixas com letras dentro.
+	Coco: Estão em uma fila linear, uma do lado da outra, logo são unidimensionais.
+	Coco: Vetores na programação são exatamente isso.
+	Coco: Repare também que as plataformas vetores sempre tem um ☆[número]☆ no nome delas e que ele começa no 0 e vai até 4, correto?
+	Coco: Vetores tem o que chamamos de INDEX que é exatamente esse número, ele serve para você localizar ele.
+	Coco: Então, se quiser saber o número do terceiro vetor, o que fazer? 
+	Coco: Simplesmente buscamos pelo ☆vetor[2]☆, ou seja com INDEX 2. 
+	Coco: Lembre-se que o primeiro INDEX sempre é 0.
 	=> conceitos_basicos
-- Loop
+- ☆ Loop
 	Coco: Agora imagine que você tenha que criar 5 plataformas [ou varíaveis] e colocar números de 1 a 5 dentro delas, como você faria isso?
 	Coco: Criaria a primeira e colocaria o número 1 dentro dela, depois criaria a segunda e colocaria o número 2 dentro dela, e depois a terceira... e depois a quarta... e depois a quinta...
 	Coco: Percebe como isso parece repetitivo?
 	Coco: Imagine se fossem 1 milhão de plataformas agora... quanto tempo levaria?
 	Coco: Por isso existem loops, você coloca a criação da plataforma dentro desse loop e define quantas vezes esse loop vai repetir.
 	Coco: Dessa forma, para criar 1 milhão de plataformas, você cria um loop que se repete por 1 milhão de vezes criando uma plataforma sempre que for executado.
+	Coco: Essa repetição é exatamente o que vai acontecer quando você for organizar as caixas.
 	=> conceitos_basicos
 - [Voltar]
 	=> start
@@ -74,23 +91,23 @@ Coco: Sobre o que você quer aprender primeiro?
 
 ~ regras
 Coco: Como jogar:
-- Objetivo
+- ☆ Objetivo
 	Coco: Seu objetivo é organizar as caixas em ordem númerica e resolver o enigma.
 	Coco: Cada caixa tem um número dentro e as plataformas só aceitam uma caixa por vez.
 	Coco: E cuidado, você tem um tempo máximo para ganhar.
-	Coco: Você tem 45 segundos para resolver o enigma de cada loop do jogo.
+	Coco: Você tem 60 segundos para resolver o enigma de cada loop do jogo.
 	Coco: Ao acabar o tempo, você perde.
 	Coco: Mas o tempo reiniciará sempre que você ganhar uma moeda.
 	Coco: Você ganha uma moeda se resolver o enigma.
 	Coco: Por fim, você tem 6 vidas no total, sendo divididas em 3 corações.
-	Coco: Sempre que levantar ou soltar uma caixa perderá meia-vida ou 1 coração.
+	Coco: Sempre que levantar ou soltar uma caixa perderá meio coração.
 	=> regras
-- Controles
-	Coco: Aperte as [SETAS] no seu teclado para andar.
-	Coco: Aperte [ESPAÇO] para levantar uma caixa.
-	Coco: Aperte [CTRL] para soltar essa caixa.
-	Coco: Só pode soltar caixas quando estiver encima de uma plataforma [vetor] ou da plataforma [var temp].
-	Coco: Aperte [H] para pedir ajuda, será exibido a resposta da fase por 10 segundos. 
+- ☆ Controles
+	Coco: Aperte as ☆SETAS☆ no seu teclado para andar.
+	Coco: Aperte ☆ESPAÇO☆ para levantar uma caixa.
+	Coco: Aperte ☆CTRL☆ para soltar essa caixa.
+	Coco: Só pode soltar caixas quando estiver encima de um ☆[vetor]☆ ou da ☆[var temp]☆.
+	Coco: Aperte ☆H☆ para pedir ajuda, será exibido a resposta da fase por 10 segundos. 
 	Coco: Mas você vai perder 5 segundos de tempo.
 	=> regras
 - [Voltar]

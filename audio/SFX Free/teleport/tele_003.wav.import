@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ds1hsffv8kfl0"
+path="res://.godot/imported/tele_003.wav-a019a03431fa0ec0ea981b23b2827602.sample"
+
+[deps]
+
+source_file="res://audio/SFX Free/teleport/tele_003.wav"
+dest_files=["res://.godot/imported/tele_003.wav-a019a03431fa0ec0ea981b23b2827602.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

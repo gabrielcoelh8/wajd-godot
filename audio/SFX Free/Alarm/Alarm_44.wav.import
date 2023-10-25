@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c78l47x2ulp6s"
+path="res://.godot/imported/Alarm_44.wav-646077bb4de337b93980fc6407f976d5.sample"
+
+[deps]
+
+source_file="res://audio/SFX Free/Alarm/Alarm_44.wav"
+dest_files=["res://.godot/imported/Alarm_44.wav-646077bb4de337b93980fc6407f976d5.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

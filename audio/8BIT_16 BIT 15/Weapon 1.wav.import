@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://be0kri68fo6ju"
+path="res://.godot/imported/Weapon 1.wav-d2671b9c5c9a78c8a61bfa13b287112f.sample"
+
+[deps]
+
+source_file="res://audio/8BIT_16 BIT 15/Weapon 1.wav"
+dest_files=["res://.godot/imported/Weapon 1.wav-d2671b9c5c9a78c8a61bfa13b287112f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

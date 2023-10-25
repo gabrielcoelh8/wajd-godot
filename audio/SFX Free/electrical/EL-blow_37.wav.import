@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cv62u1mwi1afi"
+path="res://.godot/imported/EL-blow_37.wav-e7e553c3ba29e009ee27bc0d450b5902.sample"
+
+[deps]
+
+source_file="res://audio/SFX Free/electrical/EL-blow_37.wav"
+dest_files=["res://.godot/imported/EL-blow_37.wav-e7e553c3ba29e009ee27bc0d450b5902.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

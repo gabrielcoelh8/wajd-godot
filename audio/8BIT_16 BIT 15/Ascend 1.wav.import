@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://8ln583fwyvmb"
+path="res://.godot/imported/Ascend 1.wav-a96662b281516c6919af2a06f1e78eda.sample"
+
+[deps]
+
+source_file="res://audio/8BIT_16 BIT 15/Ascend 1.wav"
+dest_files=["res://.godot/imported/Ascend 1.wav-a96662b281516c6919af2a06f1e78eda.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
