@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/Menu.gd" id="1_8yjgx"]
 [ext_resource type="AudioStream" uid="uid://b8v3ongu05si8" path="res://audio/sinnesloschen_beam.mp3" id="2_6o3dn"]
 [ext_resource type="Shader" path="res://Sprites/shader/vhs.gdshader" id="2_ts0de"]
-[ext_resource type="PackedScene" uid="uid://crbltlab6mxvu" path="res://Nodes/Menu_tile.tscn" id="3_lva2d"]
+[ext_resource type="PackedScene" uid="uid://crbltlab6mxvu" path="res://nodes/Menu_tile.tscn" id="3_lva2d"]
 [ext_resource type="FontFile" uid="uid://lm5og608fmr4" path="res://Sprites/interface/ProggyClean.ttf" id="5_c4u7u"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yx4yq"]

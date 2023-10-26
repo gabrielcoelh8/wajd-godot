@@ -118,7 +118,7 @@ func bubble_sort(arr):
 func selection_sort(arr):
 	var temp_arr = []
 	var n = arr.size()
-	var pos_greatest
+	var pivot
 	var temp
 	
 	register_step(arr, temp_arr)
@@ -126,14 +126,14 @@ func selection_sort(arr):
 	temp_arr = []
 	
 	for i in range(n-1, 1, -1):
-		pos_greatest = 0
+		pivot = 0
 		
 		for j in range(i):
-			if arr[j] > arr[pos_greatest]:
-				pos_greatest = j
+			if arr[j] > arr[pivot]:
+				pivot = j
 		temp = arr[i]
-		arr[i] = arr[pos_greatest]
-		arr[pos_greatest] = temp
+		arr[i] = arr[pivot]
+		arr[pivot] = temp
 		
 		# registrar cada passo
 		register_step(arr, temp_arr)

@@ -19,11 +19,26 @@ Coco: Tutoriais disponíveis:
 	Coco: E assim por diante até tudo ficar organizado e você ganhar!!!
 	Coco: Trabalhoso, não? Sorte que não são 1 milhão de plataformas.
 	=> start
-- ☆ Aprenda Selection Sort
-	Coco: Eu não quero te ensinar isso agora.
-	=> start
 - ☆ Aprenda Shaker Sort
-	Coco: Eu não quero te ensinar isso agora.
+	Coco: Funciona muito parecido com o ☆Bubble Sort☆
+	Coco: Você precisa saber ele antes desse... ou não?
+	Coco: Bem, é simples: Bubble compara as caixas de duas em duas da esquerda para direita, começando do começo até o fim.
+	Coco: E depois disso, volta novamente para o ínicio e vai até o fim, até finalmente organizar tudo.
+	Coco: No ☆Shaker Sort☆ é quase assim, você também compara as caixas de duas em duas da esquerda para direita começando com o ☆vetor[0]☆ e o ☆vetor[1]☆.
+	Coco: Mas quando chegar no fim das caixas, você não volta para o começo se não estiver organizado como antes. 
+	Coco: Na verdade, você compara ao contrário agora... ora, da direita para esquerda, o ☆vetor[4]☆ com o ☆vetor[3]☆, assim por diante, entendeu?
+	Coco: E quando chegar no começo e não estiver organizado ainda, você compara agora da esquerda para direita normalmente, quando chegar no final, novamente, você vai comparar ao contrário.
+	Coco: E assim por diante, multíplas vezes... boa sorte nessa.
+	=> start
+- ☆ Aprenda Selection Sort
+	Coco: Você quer jogar no nível HARD, então não vou te ajudar muito... é pra ser díficil, afinal.
+	Coco: Agora você vai comparar do final para o começo, mas não de dois em dois como antes.
+	Coco: Imagine que você tem dois loops acontecendo ao mesmo tempo dessa vez.
+	Coco: Vamos chamar o primeiro de ☆loop externo☆. Ele vai começar no final do ☆vetor☆ e sempre que completar o loop o final vai se tornar o [final anterior-1].
+	Coco: O segundo vai comparar a última caixa no ☆loop externo☆ com as caixas dentro desse loop, é claro, da esquerda para a direita.
+	Coco: Quando ele achar alguma caixa maior, elas vão alternar de lugar e o loop terá fim e o final do loop externo vai ser [final anterior-1].
+	Coco: Alguma hora não vai ter mais como reduzir o tamanho do loop externo ou as caixas estarão organizadas. Um dos dois.
+	Coco: Ha. Ha. Boa sorte. Ha. Ha. Ha.
 	=> start
 - [JOGAR]
 	=> choice
@@ -46,7 +61,7 @@ Coco: GLHF!!!
 
 ~ help
 
-Nathan: Você perdeu 5 segundos...[next=true]
+Nathan: Você perdeu 5 segundos....[next=true]
 
 => END
 
@@ -90,6 +105,7 @@ Coco: Sobre o que você quer aprender primeiro?
 => END
 
 ~ regras
+
 Coco: Como jogar:
 - ☆ Objetivo
 	Coco: Seu objetivo é organizar as caixas em ordem númerica e resolver o enigma.
@@ -112,4 +128,5 @@ Coco: Como jogar:
 	=> regras
 - [Voltar]
 	=> start
+
 => END
