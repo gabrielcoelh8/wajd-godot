@@ -31,6 +31,7 @@ var GRAVITY = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
 	animatedSprite.sprite_frames = load("res://Sprites/animation/playerBeige.tres")
+	footstepSound.stream_paused = true
 	#setar spriteframes (permite mudar os frames do objeto)
 
 func _process(_delta):

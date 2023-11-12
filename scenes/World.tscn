@@ -1,11 +1,11 @@
 [gd_scene load_steps=34 format=3 uid="uid://c3cnuo6fb5ifc"]
 
 [ext_resource type="Script" path="res://scripts/World.gd" id="1_m0jhp"]
-[ext_resource type="PackedScene" uid="uid://cpakfslut0sdy" path="res://nodes/Tilemap.tscn" id="2_xrscc"]
+[ext_resource type="PackedScene" uid="uid://cpakfslut0sdy" path="res://Nodes/Tilemap.tscn" id="2_xrscc"]
 [ext_resource type="Texture2D" uid="uid://dhix64txjl7gd" path="res://Sprites/tilemaps/platformer_tiles.png" id="3_y3wuv"]
-[ext_resource type="PackedScene" uid="uid://c0tr5ncyq4dk1" path="res://nodes/Player.tscn" id="4_go5re"]
-[ext_resource type="PackedScene" uid="uid://46m8i6xoqsmn" path="res://nodes/box.tscn" id="5_sh0ku"]
-[ext_resource type="PackedScene" uid="uid://d4ejmido4py1o" path="res://nodes/Platform.tscn" id="6_5bis8"]
+[ext_resource type="PackedScene" uid="uid://c0tr5ncyq4dk1" path="res://Nodes/Player.tscn" id="4_go5re"]
+[ext_resource type="PackedScene" uid="uid://46m8i6xoqsmn" path="res://Nodes/box.tscn" id="5_sh0ku"]
+[ext_resource type="PackedScene" uid="uid://d4ejmido4py1o" path="res://Nodes/Platform.tscn" id="6_5bis8"]
 [ext_resource type="FontFile" uid="uid://lm5og608fmr4" path="res://Sprites/interface/ProggyClean.ttf" id="7_0d3yy"]
 [ext_resource type="Texture2D" uid="uid://by6irb20l6861" path="res://Sprites/shader/spot.png" id="7_8dwgq"]
 [ext_resource type="AudioStream" uid="uid://hweetbesj2gt" path="res://audio/timer_sound.mp3" id="8_rxsyf"]
@@ -340,6 +340,43 @@ shader_parameter/refraction_map = SubResource("NoiseTexture2D_dwce5")
 [node name="World" type="Node2D"]
 process_mode = 3
 script = ExtResource("1_m0jhp")
+
+[node name="PauseControl" type="Control" parent="."]
+visible = false
+z_as_relative = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseControl"]
+top_level = true
+light_mask = 0
+texture_filter = 5
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -62.0
+offset_top = -97.0
+offset_right = 66.0
+offset_bottom = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Continuar" type="Button" parent="PauseControl/VBoxContainer"]
+layout_mode = 2
+text = "Continuar"
+
+[node name="Reiniciar" type="Button" parent="PauseControl/VBoxContainer"]
+layout_mode = 2
+text = "Reiniciar"
 
 [node name="World" parent="." instance=ExtResource("2_xrscc")]
 light_mask = 2
@@ -729,6 +766,8 @@ mouse_filter = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="WaterShader"]
 
+[connection signal="pressed" from="PauseControl/VBoxContainer/Continuar" to="." method="on_continuar_pressed"]
+[connection signal="pressed" from="PauseControl/VBoxContainer/Reiniciar" to="." method="_on_reiniciar_pressed"]
 [connection signal="body_entered" from="World/Water/DrowingArea" to="." method="_on_drowing_area_body_entered"]
 [connection signal="lose_life" from="Player" to="Player/hearts" method="_on_player_lose_life"]
 [connection signal="renew_hearts" from="Player" to="Player/hearts" method="_on_player_renew_hearts"]

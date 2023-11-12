@@ -19,8 +19,5 @@ func _ready():
 func _on_continuar_pressed():
 	get_tree().change_scene_to_file("res://scenes/World.tscn")
 
-func _on_tutorial_pressed():
-	pass # Replace with function body.
-
 func _on_menu_pressed():
 	get_tree().change_scene_to_file("res://scenes/Menu.tscn")

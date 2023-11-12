@@ -10,7 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://bwd37bsk8hmvv" path="res://audio/footsteps_sound.mp3" id="8_wml6d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iyrwh"]
-size = Vector2(80, 110)
+size = Vector2(56, 110)
 
 [sub_resource type="Theme" id="Theme_ogeel"]
 default_font_size = 26
@@ -43,7 +43,7 @@ autoplay = "idle"
 position = Vector2(0, -104)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -55)
+position = Vector2(2, -55)
 shape = SubResource("RectangleShape2D_iyrwh")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]

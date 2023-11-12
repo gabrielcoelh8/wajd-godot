@@ -14,6 +14,7 @@ signal lucky
 @onready var coinLabel = $CoinControl/HBoxContainer/StepLabel
 @onready var waterShader = $WaterShader
 @onready var animPlayer = $AnimationPlayer
+@onready var pauseControl = $PauseControl
 
 var numbers = []
 #testes
@@ -32,6 +33,7 @@ var sort_type
 
 func _ready():
 	randomize()
+	preload("res://scenes/water.gdshader")
 	get_tree().paused = true
 	
 	for i in range(boxes_nodes.size()):
@@ -86,6 +88,7 @@ func _unhandled_input(_event):
 		helpLabel.visible = false
 	if Input.is_action_just_pressed("ui_pause"):
 		get_tree().paused = not get_tree().paused
+		pauseControl.visible = not pauseControl.visible
 	if Input.is_action_just_pressed("ui_restart"):
 		get_tree().reload_current_scene()
 
@@ -118,26 +121,28 @@ func bubble_sort(arr):
 func selection_sort(arr):
 	var temp_arr = []
 	var n = arr.size()
-	var pivot
+	var lower
 	var temp
 	
 	register_step(arr, temp_arr)
 	print("original: ", temp_arr)
 	temp_arr = []
 	
-	for i in range(n-1, 1, -1):
-		pivot = 0
+	for i in range(n):
+		lower = i
 		
-		for j in range(i):
-			if arr[j] > arr[pivot]:
-				pivot = j
-		temp = arr[i]
-		arr[i] = arr[pivot]
-		arr[pivot] = temp
+		for j in range(i+1, n):
+			if arr[j] < arr[lower]:
+				lower = j
 		
-		# registrar cada passo
-		register_step(arr, temp_arr)
-		temp_arr = []
+		if arr[i] != arr[lower]:
+			temp = arr[i]
+			arr[i] = arr[lower]
+			arr[lower] = temp
+			
+			# registrar cada passo
+			register_step(arr, temp_arr)
+			temp_arr = []
 		
 	print(steps)
 
@@ -259,3 +264,11 @@ func show_dialogue(resource: DialogueResource, title: String = "0", extra_game_s
 	var balloon: Node = ExampleBalloonScene.instantiate()
 	get_tree().current_scene.add_child(balloon)
 	balloon.start(resource, title, extra_game_states)
+
+func _on_reiniciar_pressed():
+	get_tree().reload_current_scene()
+
+func on_continuar_pressed():
+	pauseControl.visible = not pauseControl.visible
+	get_tree().paused = not get_tree().paused
+
